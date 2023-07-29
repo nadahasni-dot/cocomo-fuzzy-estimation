@@ -24,8 +24,20 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/about', function () {
+    return Inertia::render('About');
+})->name('about');
 
-require __DIR__.'/auth.php';
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+
+    Route::get('/projects', function () {
+        return Inertia::render('Projects');
+    })->name('projects');
+});
+
+
+
+require __DIR__ . '/auth.php';
