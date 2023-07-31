@@ -19,7 +19,12 @@ export default function Projects(props) {
             <div className="py-12">
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="flex justify-end">
-                        <Link href="#" className="px-3 py-1 text-sm font-bold transition bg-indigo-200 rounded-lg shadow hover:bg-indigo-100">+ Add Project</Link>
+                        <Link
+                            href={route("projects.form")}
+                            className="px-3 py-2 text-sm font-bold transition bg-indigo-200 rounded-lg shadow hover:bg-indigo-100"
+                        >
+                            + Add Project
+                        </Link>
                     </div>
                     <div className="grid grid-cols-1 gap-1 mt-4 md:gap-6 md:grid-cols-2 lg:grid-cols-4">
                         <ProjectCard

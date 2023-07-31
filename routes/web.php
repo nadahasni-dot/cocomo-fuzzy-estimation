@@ -36,6 +36,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/projects', function () {
         return Inertia::render('Projects');
     })->name('projects');
+
+    Route::get('/projects/form', function () {
+        return Inertia::render('Projects/Form');
+    })->name('projects.form');
 });
 
 
