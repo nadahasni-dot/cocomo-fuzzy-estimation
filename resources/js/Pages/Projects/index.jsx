@@ -36,6 +36,7 @@ export default function Projects(props) {
                             time={5}
                             people={6}
                             cost={1000000}
+                            isDraft={true}
                         />
                         <ProjectCard
                             name="Test Project"
@@ -43,6 +44,7 @@ export default function Projects(props) {
                             time={5}
                             people={6}
                             cost={1000000}
+                            isDraft={true}
                         />
                         <ProjectCard
                             name="Test Project"
@@ -50,6 +52,7 @@ export default function Projects(props) {
                             time={5}
                             people={6}
                             cost={1000000}
+                            isDraft={true}
                         />
                     </div>
                     <div className="flex flex-row justify-between mt-4">
