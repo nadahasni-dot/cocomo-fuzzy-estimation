@@ -26,7 +26,38 @@ export default function Projects(props) {
                             + Add Project
                         </Link>
                     </div>
-                    <div className="grid grid-cols-1 gap-1 mt-4 md:gap-6 md:grid-cols-2 lg:grid-cols-4">
+                    <div className="flex flex-row justify-between mt-4">
+                        <h2 className="text-xl font-bold">Draft Projects</h2>
+                    </div>
+                    <div className="grid grid-cols-1 gap-1 py-4 md:gap-6 md:grid-cols-2 lg:grid-cols-4">
+                        <ProjectCard
+                            name="Test Project"
+                            ksloc={2000}
+                            time={5}
+                            people={6}
+                            cost={1000000}
+                        />
+                        <ProjectCard
+                            name="Test Project"
+                            ksloc={2000}
+                            time={5}
+                            people={6}
+                            cost={1000000}
+                        />
+                        <ProjectCard
+                            name="Test Project"
+                            ksloc={2000}
+                            time={5}
+                            people={6}
+                            cost={1000000}
+                        />
+                    </div>
+                    <div className="flex flex-row justify-between mt-4">
+                        <h2 className="text-xl font-bold">
+                            Estimated Projects
+                        </h2>
+                    </div>
+                    <div className="grid grid-cols-1 gap-1 py-4 md:gap-6 md:grid-cols-2 lg:grid-cols-4">
                         <ProjectCard
                             name="Test Project"
                             ksloc={2000}

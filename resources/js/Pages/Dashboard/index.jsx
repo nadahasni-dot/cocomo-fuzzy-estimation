@@ -20,10 +20,15 @@ export default function Dashboard(props) {
             <div className="py-12">
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 gap-2 md:gap-6 md:grid-cols-2">
-                        <SummaryCard title="Projects" value="10 Projects" />
+                        <SummaryCard
+                            title="Projects"
+                            value="10 Projects"
+                            redirect={route("projects")}
+                        />
                         <SummaryCard
                             title="Draft Projects"
                             value="2 Projects"
+                            redirect={route("projects")}
                         />
                     </div>
                 </div>
