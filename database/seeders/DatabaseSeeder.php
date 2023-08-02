@@ -2,6 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Functionality;
+use App\Models\LanguageFunctionPoint;
+use App\Models\Project;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +17,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(1)->create();
+        Project::factory()->create(['user_id' => 1]);
+
+        LanguageFunctionPoint::factory(1)->create();
+
+        Functionality::factory(5)->create([
+            'project_id' => 1,
+            'language_function_point_id' => 1,
+        ]);
     }
 }
