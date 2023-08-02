@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Project extends Model
+class LanguageFunctionPoint extends Model
 {
     use HasFactory;
 
@@ -16,15 +16,21 @@ class Project extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id',
         'name',
-        'description',
-        'image',
-        'status',
+        'conversion_rate',
     ];
 
-    public function user(): BelongsTo
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'conversion_rate' => 'integer',
+    ];
+
+    public function functionality(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Functionality::class);
     }
 }
