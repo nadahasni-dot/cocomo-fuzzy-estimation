@@ -15,12 +15,16 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->bigInteger('user_id')->unsigned();
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->tinyInteger('status')->default(0)->comment('0 = Draft || 1 = Calculated');
             $table->timestamps();
+        });
+
+        Schema::table('projects', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

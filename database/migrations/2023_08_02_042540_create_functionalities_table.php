@@ -15,8 +15,8 @@ class CreateFunctionalitiesTable extends Migration
     {
         Schema::create('functionalities', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('project_id')->references('id')->on('projects');
-            $table->foreignId('language_function_point_id')->references('id')->on('language_function_points');
+            $table->bigInteger('project_id')->unsigned();
+            $table->bigInteger('language_function_point_id')->unsigned();
             $table->string('name');
             $table->text('description')->nullable();
             $table->json('exi')->nullable();
@@ -25,6 +25,11 @@ class CreateFunctionalitiesTable extends Migration
             $table->json('ilof')->nullable();
             $table->json('elof')->nullable();
             $table->timestamps();
+        });
+
+        Schema::table('functionalities', function (Blueprint $table) {
+            $table->foreign('project_id')->references('id')->on('projects');
+            $table->foreign('language_function_point_id')->references('id')->on('language_function_points');
         });
     }
 
