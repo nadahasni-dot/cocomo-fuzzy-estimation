@@ -19,6 +19,11 @@ class CreateFunctionalitiesTable extends Migration
             $table->foreignId('language_function_point_id')->references('id')->on('language_function_points');
             $table->string('name');
             $table->text('description')->nullable();
+            $table->json('exi')->nullable();
+            $table->json('exo')->nullable();
+            $table->json('exiq')->nullable();
+            $table->json('ilof')->nullable();
+            $table->json('elof')->nullable();
             $table->timestamps();
         });
     }
