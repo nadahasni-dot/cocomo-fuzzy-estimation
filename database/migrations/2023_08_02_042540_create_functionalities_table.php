@@ -24,6 +24,7 @@ class CreateFunctionalitiesTable extends Migration
             $table->json('exiq')->nullable();
             $table->json('ilof')->nullable();
             $table->json('elof')->nullable();
+            $table->double('ksloc')->nullable();
             $table->timestamps();
         });
 

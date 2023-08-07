@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Functionality extends Model
+class ScaleFactor extends Model
 {
     use HasFactory;
 
@@ -18,24 +17,25 @@ class Functionality extends Model
      */
     protected $fillable = [
         'project_id',
-        'language_function_point_id',
-        'name',
-        'description',
-        'exi',
-        'exo',
-        'exiq',
-        'ilof',
-        'elof',
-        'ksloc',
+        'prec',
+        'flex',
+        'resl',
+        'team',
+        'pmat',
+        'scale_factor',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'scale_factor' => 'double',
     ];
 
     public function project(): BelongsTo
     {
         return $this->belongsTo(Project::class);
-    }
-
-    public function languageFunctionPoint(): HasOne
-    {
-        return $this->hasOne(LanguageFunctionPoint::class);
     }
 }
