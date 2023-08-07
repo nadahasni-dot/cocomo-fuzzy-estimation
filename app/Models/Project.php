@@ -33,4 +33,9 @@ class Project extends Model
     {
         return $this->hasOne(ScaleFactor::class);
     }
+
+    public function effortMultiplier(): HasOne
+    {
+        return $this->hasOne(EffortMultiplier::class);
+    }
 }
