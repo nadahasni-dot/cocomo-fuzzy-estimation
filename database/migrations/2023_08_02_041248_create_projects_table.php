@@ -20,6 +20,10 @@ class CreateProjectsTable extends Migration
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->tinyInteger('status')->default(0)->comment('0 = Draft || 1 = Calculated');
+            $table->double('est_ksloc')->nullable();
+            $table->double('est_time')->nullable();
+            $table->double('est_staff')->nullable();
+            $table->double('est_cost')->nullable();
             $table->timestamps();
         });
 

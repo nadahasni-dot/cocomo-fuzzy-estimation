@@ -18,6 +18,10 @@ class ProjectFactory extends Factory
             'name' => $this->faker->name(),
             'description' => $this->faker->paragraph(),
             'image' => null,
+            'est_ksloc' => null,
+            'est_time' => null,
+            'est_staff' => null,
+            'est_cost' => null,
         ];
     }
 }
