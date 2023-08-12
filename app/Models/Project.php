@@ -22,10 +22,15 @@ class Project extends Model
         'description',
         'image',
         'status',
-        'est_ksloc',
+        'avg_staff_cost',
+        'est_effort',
         'est_time',
         'est_staff',
         'est_cost',
+        'est_effort_fuzzy',
+        'est_time_fuzzy',
+        'est_staff_fuzzy',
+        'est_cost_fuzzy',
     ];
 
     /**

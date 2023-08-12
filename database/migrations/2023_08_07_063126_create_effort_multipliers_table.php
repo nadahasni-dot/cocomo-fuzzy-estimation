@@ -34,6 +34,7 @@ class CreateEffortMultipliersTable extends Migration
             $table->string('site')->nullable();
             $table->string('sced')->nullable();
             $table->double('effort_multiplier')->nullable();
+            $table->double('effort_multiplier_fuzzy')->nullable();
             $table->timestamps();
         });
 
