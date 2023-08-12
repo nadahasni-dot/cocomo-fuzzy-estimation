@@ -16,11 +16,11 @@ class CreateScaleFactorsTable extends Migration
         Schema::create('scale_factors', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('project_id')->unsigned();
-            $table->string('prec')->nullable();
-            $table->string('flex')->nullable();
-            $table->string('resl')->nullable();
-            $table->string('team')->nullable();
-            $table->string('pmat')->nullable();
+            $table->string('prec', 3)->nullable();
+            $table->string('flex', 3)->nullable();
+            $table->string('resl', 3)->nullable();
+            $table->string('team', 3)->nullable();
+            $table->string('pmat', 3)->nullable();
             $table->double('scale_factor')->nullable();
             $table->timestamps();
         });

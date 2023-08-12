@@ -35,6 +35,7 @@ class EffortMultiplier extends Model
         'site',
         'sced',
         'effort_multiplier',
+        'effort_multiplier_fuzzy',
     ];
 
     /**
@@ -43,7 +44,25 @@ class EffortMultiplier extends Model
      * @var array<string, string>
      */
     protected $casts = [
+        'rely' => 'double',
+        'data' => 'double',
+        'cplx' => 'double',
+        'docu' => 'double',
+        'acap' => 'double',
+        'pcap' => 'double',
+        'pcon' => 'double',
+        'ruse' => 'double',
+        'time' => 'double',
+        'stor' => 'double',
+        'pvol' => 'double',
+        'aplex' => 'double',
+        'plex' => 'double',
+        'ltex' => 'double',
+        'tool' => 'double',
+        'site' => 'double',
+        'sced' => 'double',
         'effort_multiplier' => 'double',
+        'effort_multiplier_fuzzy' => 'double',
     ];
 
     public function project(): BelongsTo
