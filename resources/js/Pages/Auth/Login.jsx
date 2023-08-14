@@ -37,7 +37,7 @@ export default function Login({ status, canResetPassword }) {
 
     return (
         <Guest>
-            <Head title="Log in" />
+            <Head title="Masuk" />
 
             {status && (
                 <div className="mb-4 text-sm font-medium text-green-600">
@@ -86,7 +86,7 @@ export default function Login({ status, canResetPassword }) {
                         />
 
                         <span className="ml-2 text-sm text-gray-600">
-                            Remember me
+                            Ingat Saya
                         </span>
                     </label>
                 </div>
@@ -97,12 +97,12 @@ export default function Login({ status, canResetPassword }) {
                             href={route("password.request")}
                             className="text-sm text-gray-600 underline hover:text-gray-900"
                         >
-                            Forgot your password?
+                            Lupa password anda?
                         </Link>
                     )}
 
                     <Button className="ml-4" processing={processing}>
-                        Log in
+                        Masuk
                     </Button>
                 </div>
             </form>

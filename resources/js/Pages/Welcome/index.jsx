@@ -35,14 +35,14 @@ export default function Welcome(props) {
                                             href={route("login")}
                                             className="px-4 py-2 text-sm font-semibold text-gray-700 transition bg-gray-100 rounded-lg hover:bg-gray-200"
                                         >
-                                            Log in
+                                            Masuk
                                         </Link>
 
                                         <Link
                                             href={route("register")}
                                             className="px-4 py-2 ml-4 text-sm font-semibold text-gray-700 transition bg-gray-100 rounded-lg hover:bg-gray-200"
                                         >
-                                            Register
+                                            Daftar
                                         </Link>
                                     </>
                                 )}

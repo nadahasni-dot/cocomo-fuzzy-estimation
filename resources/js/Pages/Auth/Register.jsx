@@ -37,13 +37,13 @@ export default function Register() {
 
     return (
         <Guest>
-            <Head title="Register" />
+            <Head title="Daftar" />
 
             <ValidationErrors errors={errors} />
 
             <form onSubmit={submit}>
                 <div>
-                    <Label forInput="name" value="Name" />
+                    <Label forInput="name" value="Nama" />
 
                     <Input
                         type="text"
@@ -54,7 +54,7 @@ export default function Register() {
                         isFocused={true}
                         handleChange={onHandleChange}
                         required
-                        placeholder="Name"
+                        placeholder="Nama"
                     />
                 </div>
 
@@ -91,7 +91,7 @@ export default function Register() {
                 <div className="mt-4">
                     <Label
                         forInput="password_confirmation"
-                        value="Confirm Password"
+                        value="Konfirmasi Password"
                     />
 
                     <Input
@@ -101,7 +101,7 @@ export default function Register() {
                         className="block w-full mt-1"
                         handleChange={onHandleChange}
                         required
-                        placeholder="Password Confirmation"
+                        placeholder="Konfirmasi Password"
                     />
                 </div>
 
@@ -110,11 +110,11 @@ export default function Register() {
                         href={route("login")}
                         className="text-sm text-gray-600 underline hover:text-gray-900"
                     >
-                        Already registered?
+                        Sudah mendaftar?
                     </Link>
 
                     <Button className="ml-4" processing={processing}>
-                        Register
+                        Daftar
                     </Button>
                 </div>
             </form>
