@@ -20,9 +20,10 @@ module.exports = {
             },
             backgroundImage: {
                 "project-pattern": "url('/icons/project.svg')",
+                hero: "url('/images/hero-bg.jpg')",
             },
             fontFamily: {
-                sans: ["Nunito", ...defaultTheme.fontFamily.sans],
+                sans: ["Nunito Sans", ...defaultTheme.fontFamily.sans],
             },
         },
     },

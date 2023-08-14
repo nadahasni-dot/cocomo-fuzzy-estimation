@@ -3369,6 +3369,81 @@ function Label(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/Components/Landing/InfoCard.jsx":
+/*!******************************************************!*\
+  !*** ./resources/js/Components/Landing/InfoCard.jsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ InfoCard)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function InfoCard(_ref) {
+  var icon = _ref.icon,
+    description = _ref.description;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "flex flex-col items-center px-6 pb-6 bg-white rounded-lg shadow pt-14",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+      src: icon,
+      alt: "cocomo-info",
+      width: 100
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "mt-6 text-sm text-slate-500 md:text-base",
+      children: description
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Components/Landing/StepCard.jsx":
+/*!******************************************************!*\
+  !*** ./resources/js/Components/Landing/StepCard.jsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StepCard)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function StepCard(_ref) {
+  var icon = _ref.icon,
+    title = _ref.title,
+    children = _ref.children;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "flex flex-row items-start px-6 py-4 bg-gray-100 rounded-lg",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+      src: icon,
+      alt: title,
+      width: 54
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "flex flex-col ml-6",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        className: "text-lg font-bold md:text-xl",
+        children: title
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        className: "text-sm text-gray-500 md:text-base",
+        children: children
+      })]
+    })]
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/Components/NavLink.jsx":
 /*!*********************************************!*\
   !*** ./resources/js/Components/NavLink.jsx ***!
@@ -4712,8 +4787,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Components_Landing_InfoCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Landing/InfoCard */ "./resources/js/Components/Landing/InfoCard.jsx");
+/* harmony import */ var _Components_Landing_StepCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/Landing/StepCard */ "./resources/js/Components/Landing/StepCard.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 var _window$document$getE;
+
+
 
 
 
@@ -4721,39 +4800,231 @@ var _window$document$getE;
 
 var appName = ((_window$document$getE = window.document.getElementsByTagName("title")[0]) === null || _window$document$getE === void 0 ? void 0 : _window$document$getE.innerText) || "Laravel";
 function Welcome(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Head, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Head, {
       title: "Welcome"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "relative flex justify-center min-h-screen bg-gray-100 items-top sm:items-center sm:pt-0",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("nav", {
-        className: "fixed top-0 w-full px-6 py-4 text-right bg-white sm:block",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "flex flex-col items-center justify-between gap-4 sm:flex-row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-            src: "/icons/cocomo.svg",
-            alt: appName,
-            width: 250
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            children: props.auth.user ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-              href: route("dashboard"),
-              className: "px-4 py-2 text-sm font-semibold text-gray-700 transition bg-gray-100 rounded-lg hover:bg-gray-200",
-              children: "Dashboard"
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-                href: route("login"),
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "relative min-h-screen font-sans bg-gray-100 items-top sm:items-center sm:pt-0",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("nav", {
+        className: "sticky top-0 w-full py-4 text-right bg-white shadow sm:px-6 lg:px-8 sm:block",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "container mx-auto",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "flex flex-col items-center justify-between gap-4 sm:flex-row",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+              src: "/icons/logo-dark.svg",
+              alt: appName,
+              width: 180,
+              className: "my-2"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              children: props.auth.user ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                href: route("dashboard"),
                 className: "px-4 py-2 text-sm font-semibold text-gray-700 transition bg-gray-100 rounded-lg hover:bg-gray-200",
-                children: "Log in"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-                href: route("register"),
-                className: "px-4 py-2 ml-4 text-sm font-semibold text-gray-700 transition bg-gray-100 rounded-lg hover:bg-gray-200",
-                children: "Register"
+                children: "Dashboard"
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                  href: route("login"),
+                  className: "px-4 py-2 text-sm font-semibold text-gray-700 transition bg-gray-100 rounded-lg hover:bg-gray-200",
+                  children: "Log in"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                  href: route("register"),
+                  className: "px-4 py-2 ml-4 text-sm font-semibold text-gray-700 transition bg-gray-100 rounded-lg hover:bg-gray-200",
+                  children: "Register"
+                })]
+              })
+            })]
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "px-6 bg-cover bg-hero lg:px-8",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "container mx-auto",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "max-w-xl py-16 text-white",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+              className: "text-3xl font-black md:text-5xl",
+              children: ["Dapatkan", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-amber-400",
+                children: "Estimasi"
+              }), " ", "Proyek Anda"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+              className: "mt-4 md:text-lg",
+              children: ["Catat dan dapatkan estimasi dari kebutuhan fungsional projek anda dengan perhitungan", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-amber-400",
+                children: "COCOMO II"
+              }), " ", "yang telah ditingkatkan dengan", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-amber-400",
+                children: "Logika Fuzzy"
               })]
-            })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex flex-row gap-4 mt-8",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                href: route("dashboard"),
+                className: "flex items-center px-6 py-2 font-bold text-indigo-700 transition bg-white rounded-lg md:text-lg hover:bg-indigo-100",
+                children: "Mulai Estimasi"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+                href: "https://wa.me/62895387228138",
+                target: "_blank",
+                className: "px-2 py-2 font-bold text-indigo-700 transition rounded-lg bg-amber-400 hover:bg-amber-300",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  src: "/icons/whatsapp.svg",
+                  alt: "hubungi-whatsapp"
+                })
+              })]
+            })]
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "px-6 lg:px-8",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "container mx-auto py-14",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+            className: "text-2xl font-black text-center md:text-4xl",
+            children: "Tentang COCOMO II"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+            className: "text-center md:text-lg text-slate-500",
+            children: "Penjelasan singkat tentang Constructive Cost Model II (COCOMO II)"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "grid max-w-4xl grid-cols-1 gap-4 mx-auto mt-10 md:grid-cols-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Landing_InfoCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              icon: "/icons/cocomo-info.svg",
+              description: "COCOMO II merupakan salah satu pemodelan estimasi biaya dengan pendekatan algoritmik yang dapat digunakan untuk melakukan estimasi usaha, biaya, waktu, pada suatu pengembangan perangkat luinak"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Landing_InfoCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              icon: "/icons/cocomo-brain.svg",
+              description: "COCOMO II (Constructive Cost Model II). Model COCOMO didasarkan pada studi 63 proyek pengembangan perangkat lunak berskala besar pada tahun 1981 yang kemudian disempuranakan pada akhir tahun 90-an menjadi COCOMO II"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Landing_InfoCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              icon: "/icons/cocomo-document.svg",
+              description: "Algoritma COCOMO II menjadi salah satu model yang memiliki dokumentasi terbaik"
+            })]
           })]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "max-w-6xl mx-auto sm:px-6 lg:px-8"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "px-6 bg-white lg:px-8",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "container mx-auto py-14",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+            className: "text-2xl font-black text-center md:text-4xl",
+            children: "Proses Perhitungan"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+            className: "text-center md:text-lg text-slate-500",
+            children: "Alur proses perhitungan estimasi projek dengan COCOMO II"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "flex flex-col gap-6 mt-10",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Landing_StepCard__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              icon: "/icons/step-1.svg",
+              title: "Mencatat tiap kebutuhan fungsional",
+              children: "Menambahkan detail daftar kebutuhan fungsional sistem yang akan dibangun."
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Landing_StepCard__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              icon: "/icons/step-2.svg",
+              title: "Mengisi form Function Point",
+              children: "Mengisi formulir function point pada tiap kebutuhan fungsional untuk mendapat estimasi Source Line of Code (SLOC)."
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Landing_StepCard__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              icon: "/icons/step-3.svg",
+              title: "Mengisi form COCOMO II",
+              children: "Pengisian detail projek dengan melengkapi formulir COCOMO II untuk mendapat perhitungan sesuai spesifikasi projek."
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Landing_StepCard__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              icon: "/icons/step-4.svg",
+              title: "Perhitungan COCOMO II dengan Logika FUZZY",
+              children: "Data yang telah terekam akan diproses dengan rumus algoritma COCOMO II yang telah diperkuat dengan Logika Fuzzy."
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_Components_Landing_StepCard__WEBPACK_IMPORTED_MODULE_3__["default"], {
+              icon: "/icons/step-5.svg",
+              title: "Didapatkan Hasil Estimasi",
+              children: ["Didapatkan hasil estimasi cost projek berupa", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-amber-500",
+                children: "Kilo Source Line of Code (KSLOC), Estimasi Waktu, Estimasi Biaya"
+              }), ", dan", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-amber-500",
+                children: "Estimasi jumlah Staff"
+              }), "."]
+            })]
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "px-6 text-white bg-indigo-600 lg:px-8",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "container py-12 mx-auto",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "grid grid-cols-1 gap-16 md:grid-cols-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                src: "/icons/logo-light.svg",
+                alt: "cocomo",
+                width: 250
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+                className: "mt-6 text-sm md:text-base",
+                children: ["Sistem penghitung estimasi projek perangkat lunak dengan menggunakan Algoritma", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  className: "text-amber-400",
+                  children: "COCOMO II"
+                }), " ", "yang telah diperkuat dengan", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  className: "text-amber-400",
+                  children: "Logika Fuzzy"
+                }), "."]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+                className: "text-lg font-bold md:text-xl",
+                children: "Tautan Terkait"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+                className: "flex flex-col gap-2 mt-4",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                    href: route("login"),
+                    className: "text-sm transition md:text-base hover:text-indigo-100",
+                    children: "Masuk"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                    href: route("register"),
+                    className: "text-sm transition md:text-base hover:text-indigo-100",
+                    children: "Daftar"
+                  })
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+                className: "text-lg font-bold md:text-xl",
+                children: "Kontak"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+                className: "flex flex-col gap-2 mt-4",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
+                    href: "https://goo.gl/maps/LyDyXEBiKgh7Hm8g9",
+                    target: "_blank",
+                    className: "flex items-start gap-2 text-sm transition md:text-base hover:text-indigo-100",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                      src: "/icons/location-pin.svg",
+                      alt: "location",
+                      width: 24
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                      children: "Jl. Mastrip PO.BOX 164 JemberJember Jawa Timur 68101 Indonesia"
+                    })]
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
+                    href: "https://wa.me/62895387228138",
+                    target: "_blank",
+                    className: "flex items-start gap-2 text-sm transition md:text-base hover:text-indigo-100",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                      src: "/icons/whatsapp.svg",
+                      alt: "whatsapp",
+                      width: 24
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                      children: "+62 895 3872 28138"
+                    })]
+                  })
+                })]
+              })]
+            })]
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "py-6 text-sm text-center text-white md:text-base bg-slate-900 lg:px-8",
+        children: ["\xA9 COCOMO II Estimation by", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+          href: "https://github.com/nadahasnim",
+          target: "_blank",
+          className: "transition text-amber-400 hover:text-amber-500",
+          children: "Nada Hasni Muhammad"
+        })]
       })]
     })]
   });
