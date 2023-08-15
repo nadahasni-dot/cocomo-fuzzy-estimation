@@ -46,6 +46,11 @@ class Project extends Model
         'est_cost' => 'double',
     ];
 
+    public function ksloc()
+    {
+        return $this->functionalities()->sum('ksloc');
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

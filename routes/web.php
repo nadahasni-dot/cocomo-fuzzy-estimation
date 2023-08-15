@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -30,9 +31,7 @@ Route::get('/about', function () {
 })->name('about');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('/projects', ProjectController::class, [
         'names' => [
@@ -40,10 +39,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ]
     ])->except(['update']);
     Route::post('/projects/{project}/update', [ProjectController::class, 'update'])->name('projects.update');
-
-    Route::get('/projects', function () {
-        return Inertia::render('Projects');
-    })->name('projects');
 });
 
 

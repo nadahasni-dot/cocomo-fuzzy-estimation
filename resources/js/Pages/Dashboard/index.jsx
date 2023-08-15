@@ -5,6 +5,8 @@ import SummaryCard from "@/Components/Dashboard/SummaryCard";
 import ProjectCard from "@/Components/Project/ProjectCard";
 
 export default function Dashboard(props) {
+    const { projects, projectsCount, draftProjectsCount } = props;
+
     return (
         <Authenticated
             auth={props.auth}
@@ -21,13 +23,13 @@ export default function Dashboard(props) {
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 gap-2 md:gap-6 md:grid-cols-2">
                         <SummaryCard
-                            title="Projects"
-                            value="10 Projects"
+                            title="Proyek"
+                            value={`${projectsCount} Prouek`}
                             redirect={route("projects")}
                         />
                         <SummaryCard
-                            title="Draft Projects"
-                            value="2 Projects"
+                            title="Draf Proyek"
+                            value={`${draftProjectsCount} Proyek`}
                             redirect={route("projects")}
                         />
                     </div>
@@ -42,38 +44,27 @@ export default function Dashboard(props) {
                             href={route("projects")}
                             className="px-3 py-2 text-sm font-bold transition rounded-lg hover:bg-indigo-200"
                         >
-                            See All
+                            Lihat Semua
                         </Link>
                     </div>
+                    {projects.length === 0 && (
+                        <div className="py-10 text-center">
+                            Belum Ada Proyek Terkalkulasi
+                        </div>
+                    )}
                     <div className="grid grid-cols-1 gap-1 py-4 md:gap-6 md:grid-cols-2 lg:grid-cols-4">
-                        <ProjectCard
-                            name="Test Project"
-                            ksloc={2000}
-                            time={5}
-                            people={6}
-                            cost={1000000}
-                        />
-                        <ProjectCard
-                            name="Test Project"
-                            ksloc={2000}
-                            time={5}
-                            people={6}
-                            cost={1000000}
-                        />
-                        <ProjectCard
-                            name="Test Project"
-                            ksloc={2000}
-                            time={5}
-                            people={6}
-                            cost={1000000}
-                        />
-                        <ProjectCard
-                            name="Test Project"
-                            ksloc={2000}
-                            time={5}
-                            people={6}
-                            cost={1000000}
-                        />
+                        {projects.map((project) => (
+                            <ProjectCard
+                                key={project.id}
+                                name={project.name}
+                                effort={project.est_effort}
+                                time={project.est_time}
+                                people={project.est_staff}
+                                cost={project.est_cost}
+                                isDraft={project.status === 0}
+                                href={route("projects.show", project)}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>

@@ -17,7 +17,13 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Projects');
+        $draftProjects = Project::where('status', 0)->get();
+        $projects = Project::where('status', 1)->get();
+
+        return Inertia::render('Projects', [
+            'projects' => $projects,
+            'draftProjects' => $draftProjects,
+        ]);
     }
 
     /**
@@ -95,7 +101,7 @@ class ProjectController extends Controller
      */
     public function update(EditProjectRequest $request, Project $project)
     {
-        $data = $request->validated();        
+        $data = $request->validated();
 
         $project->name = $data['name'];
         $project->description = $data['description'];

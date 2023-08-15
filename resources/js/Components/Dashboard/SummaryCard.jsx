@@ -15,7 +15,7 @@ export default function SummaryCard({ title, value, redirect }) {
                 href={redirect}
                 className="block px-4 py-2 text-sm text-center text-white transition bg-indigo-400 hover:bg-indigo-700"
             >
-                View Detail
+                Lihar Detail
             </Link>
         </div>
     );
