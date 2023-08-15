@@ -26,5 +26,8 @@
         "react-dom": "^17.0.2",
         "react-refresh": "^0.14.0",
         "tailwindcss": "^3.0.18"
+    },
+    "dependencies": {
+        "react-toastify": "^9.1.3"
     }
 }

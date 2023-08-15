@@ -6,6 +6,7 @@ import Input from "@/Components/Input";
 import Label from "@/Components/Label";
 import ValidationErrors from "@/Components/ValidationErrors";
 import { Head, Link, useForm } from "@inertiajs/inertia-react";
+import { toast } from "react-toastify";
 
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -29,10 +30,14 @@ export default function Login({ status, canResetPassword }) {
         );
     };
 
-    const submit = (e) => {
+    const submit = async (e) => {
         e.preventDefault();
 
-        post(route("login"));
+        post(route("login"), {
+            onSuccess: () => {
+                toast.success("Berhasil Login! Selamat Datang!");
+            },
+        });
     };
 
     return (
