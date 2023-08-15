@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -33,13 +34,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
+    Route::resource('/projects', ProjectController::class, [
+        'names' => [
+            'index' => 'projects',
+            'create' => 'projects.create',
+            'store' => 'projects.store',
+            'show' => 'projects.show',
+            'edit' => 'projects.edit',
+            'update' => 'projects.update',
+            'destroy' => 'projects.destroy',
+        ]
+    ]);
+
     Route::get('/projects', function () {
         return Inertia::render('Projects');
     })->name('projects');
-
-    Route::get('/projects/form', function () {
-        return Inertia::render('Projects/Form');
-    })->name('projects.form');
 });
 
 

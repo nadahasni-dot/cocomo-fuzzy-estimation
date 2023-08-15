@@ -20,7 +20,7 @@ export default function Projects(props) {
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="flex justify-end">
                         <Link
-                            href={route("projects.form")}
+                            href={route("projects.create")}
                             className="px-3 py-2 text-sm font-bold transition bg-indigo-200 rounded-lg shadow hover:bg-indigo-100"
                         >
                             + Add Project
