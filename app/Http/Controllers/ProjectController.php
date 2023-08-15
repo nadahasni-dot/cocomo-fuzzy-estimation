@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Project\CreateProjectRequest;
+use App\Http\Requests\Project\EditProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -63,8 +64,12 @@ class ProjectController extends Controller
      */
     public function show(Request $request, Project $project)
     {
+        $project = Project::where('id', $project->id)
+            ->with(['functionalities', 'scaleFactor', 'effortMultiplier'])
+            ->first();
+
         return Inertia::render('Projects/Detail', [
-            'project' => $project->with(['functionalities', 'scaleFactor', 'effortMultiplier']),
+            'project' => $project
         ]);
     }
 
@@ -76,7 +81,7 @@ class ProjectController extends Controller
      */
     public function edit(Request $request, Project $project)
     {
-        return Inertia::render('Projects/Edit', [
+        return Inertia::render('Projects/Form/Edit', [
             'project' => $project,
         ]);
     }
@@ -88,9 +93,23 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditProjectRequest $request, Project $project)
     {
-        //
+        $data = $request->validated();        
+
+        $project->name = $data['name'];
+        $project->description = $data['description'];
+        $project->avg_staff_cost = $data['avgStaffCost'];
+
+        if (isset($data['image'])) {
+            $project->image = $data['image']->store('projects');
+        }
+
+        if ($project->save()) {
+            return redirect()->route('projects.show', [$project]);
+        }
+
+        return redirect()->back()->with('message', 'Gagal menyimpan proyek');
     }
 
     /**

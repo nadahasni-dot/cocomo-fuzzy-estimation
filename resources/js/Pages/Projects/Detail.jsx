@@ -3,6 +3,8 @@ import { Head, Link } from "@inertiajs/inertia-react";
 import React from "react";
 
 export default function Projects(props) {
+    const { project } = props;
+
     return (
         <Authenticated
             auth={props.auth}

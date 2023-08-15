@@ -37,14 +37,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/projects', ProjectController::class, [
         'names' => [
             'index' => 'projects',
-            'create' => 'projects.create',
-            'store' => 'projects.store',
-            'show' => 'projects.show',
-            'edit' => 'projects.edit',
-            'update' => 'projects.update',
-            'destroy' => 'projects.destroy',
         ]
-    ]);
+    ])->except(['update']);
+    Route::post('/projects/{project}/update', [ProjectController::class, 'update'])->name('projects.update');
 
     Route::get('/projects', function () {
         return Inertia::render('Projects');

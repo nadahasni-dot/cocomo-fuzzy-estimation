@@ -7,15 +7,15 @@ import ValidationErrors from "@/Components/ValidationErrors";
 import Authenticated from "@/Layouts/Authenticated";
 import { Head, useForm } from "@inertiajs/inertia-react";
 import { toast } from "react-toastify";
-import React from "react";
 
-export default function Form(props) {
+export default function Edit(props) {
+    const { project } = props;
+
     const { data, setData, post, processing, errors } = useForm({
-        name: "",
-        description: "",
-        // status: "",
+        name: project.name,
+        description: project.description,
         image: null,
-        avgStaffCost: "",
+        avgStaffCost: project.avg_staff_cost,
     });
 
     const onHandleChange = (event) => {
@@ -30,9 +30,12 @@ export default function Form(props) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        post(route("projects.store"), {
+        post(route("projects.update", project), {
+            onBefore: () => {
+                console.log(data);
+            },
             onSuccess: () => {
-                toast.success("Berhasil Menyimpan Proyek");
+                toast.success("Berhasil Memperbarui Detail Proyek");
             },
             onError: (error) => {
                 toast.error(error);
@@ -46,7 +49,7 @@ export default function Form(props) {
             errors={props.errors}
             header={
                 <h2 className="text-xl font-semibold leading-tight text-gray-800">
-                    Form Proyek
+                    Edit {project.name}
                 </h2>
             }
         >
@@ -117,7 +120,10 @@ export default function Form(props) {
                             </div>
 
                             <div className="mt-4">
-                                <Label forInput="image" value="Gambar Proyek" />
+                                <Label
+                                    forInput="image"
+                                    value="Gambar Proyek (Kosongi Jika Tidak Ingin Merubah)"
+                                />
 
                                 <Input
                                     type="file"
@@ -131,28 +137,6 @@ export default function Form(props) {
                                     required={false}
                                 />
                             </div>
-
-                            {/* <div className="mt-4">
-                                <Label
-                                    forInput="status"
-                                    value="Status Proyek"
-                                    required={true}
-                                />
-
-                                <Select
-                                    name="status"
-                                    value={data.status}
-                                    className="block w-full mt-1"
-                                    isFocused={false}
-                                    handleChange={onHandleChange}
-                                    placeholder="Status Proyek"
-                                    required={true}
-                                >
-                                    <option value="">Pilih Status</option>
-                                    <option value="0">Draf</option>
-                                    <option value="1">Terkalkulasi</option>
-                                </Select>
-                            </div> */}
 
                             <div className="flex justify-end">
                                 <Button
