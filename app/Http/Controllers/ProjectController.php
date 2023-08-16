@@ -73,9 +73,11 @@ class ProjectController extends Controller
         $project = Project::where('id', $project->id)
             ->with(['functionalities', 'scaleFactor', 'effortMultiplier'])
             ->first();
+        $ksloc = $project->ksloc();
 
         return Inertia::render('Projects/Detail', [
-            'project' => $project
+            'project' => $project,
+            'ksloc' => $ksloc,
         ]);
     }
 
@@ -124,8 +126,12 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
-        //
+        if ($project->delete()) {
+            return redirect()->route('projects');
+        }
+
+        return redirect()->back()->with('message', 'Gagal menghapus proyek');
     }
 }

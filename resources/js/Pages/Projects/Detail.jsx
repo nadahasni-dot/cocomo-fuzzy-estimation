@@ -1,9 +1,34 @@
+import FormCard from "@/Components/FormCard";
+import ProjectSummaryCard from "@/Components/Project/ProjectSummaryCard";
 import Authenticated from "@/Layouts/Authenticated";
-import { Head, Link } from "@inertiajs/inertia-react";
-import React from "react";
+import { Head, Link, useForm } from "@inertiajs/inertia-react";
+import { toast } from "react-toastify";
+import { useState } from "react";
+import { Dialog } from "@headlessui/react";
+import { formatTimestamp } from "@/Utils/date";
 
 export default function Projects(props) {
-    const { project } = props;
+    const { project, ksloc } = props;
+    const { functionalities, scaleFactor, effortMultiplier } = project;
+
+    const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+
+    const { processing, delete: destroy } = useForm({
+        project,
+    });
+
+    const handleDelete = (e) => {
+        if (processing) return;
+
+        destroy(route("projects.destroy", project), {
+            onSuccess: () => {
+                toast.success("Berhasil Menghapus Proyek");
+            },
+            onError: (error) => {
+                toast.error(error);
+            },
+        });
+    };
 
     return (
         <Authenticated
@@ -18,7 +43,186 @@ export default function Projects(props) {
             <Head title="Projects" />
 
             <div className="py-12">
-                <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8"></div>
+                <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                    {/* Top Info */}
+                    <div className="grid grid-cols-1 gap-3 md:grid-cols-4">
+                        <ProjectSummaryCard
+                            title="KSLOC"
+                            icon="/icons/code.svg"
+                            value={ksloc ?? "-"}
+                            description="Estimasi jumlah baris kode (Kilo Source Line of Code)"
+                            className="border-indigo-600"
+                        />
+                        <ProjectSummaryCard
+                            title="Estimasi Waktu"
+                            icon="/icons/clock.svg"
+                            value={`${project.est_time ?? "-"} Bulan`}
+                            description="Estimasi waktu pengerjaan proyek dalam satuan bulan"
+                            className="border-amber-400"
+                        />
+                        <ProjectSummaryCard
+                            title="Estimasi Staf"
+                            icon="/icons/staff.svg"
+                            value={`${project.est_staff ?? "-"} Orang`}
+                            description="Estimasi jumlah staf yang diperlukan untuk menyelesaikan proyek"
+                            className="border-sky-600"
+                        />
+                        <ProjectSummaryCard
+                            title="Estimasi Biaya"
+                            icon="/icons/cost.svg"
+                            value={`Rp. ${project.est_cost ?? "-"}`}
+                            description="Estimasi biaya staff yang diperlukan untuk menyelesaikan proyek"
+                            className="border-green-600"
+                        />
+                        <ProjectSummaryCard
+                            title="Fungsionalitas"
+                            icon="/icons/functionalities.svg"
+                            value={`${functionalities.length} Fungsionalitas`}
+                            description="Jumlah modul/fungsionalitas pada proyek"
+                            className="md:col-span-2 border-fuchsia-600"
+                        />
+                        <ProjectSummaryCard
+                            title="Estimasi Usaha"
+                            icon="/icons/effort.svg"
+                            value={`${project.est_effort ?? "-"} Person Month`}
+                            description="Estimasi usaha untuk menyelesaikan proyek dalam satuan (Person Month)"
+                            className="md:col-span-2 border-lime-600"
+                        />
+                    </div>
+
+                    {/* Main Info */}
+                    <FormCard title="informasi Proyek" className="mt-6">
+                        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                            <div>
+                                <dt className="text-sm text-gray-500">
+                                    Nama Proyek
+                                </dt>
+                                <dd className="text-lg font-bold">
+                                    {project.name}
+                                </dd>
+                                <dt className="mt-3 text-sm text-gray-500">
+                                    Deskripsi Proyek
+                                </dt>
+                                <dd className="font-semibold">
+                                    {project.description}
+                                </dd>
+                                <dt className="mt-3 text-sm text-gray-500">
+                                    Rerata Biaya Staff
+                                </dt>
+                                <dd className="font-semibold">
+                                    Rp.{project.avgStaffCost ?? "-"}
+                                </dd>
+                                <dt className="mt-3 text-sm text-gray-500">
+                                    Status
+                                </dt>
+                                <dd
+                                    className={`font-semibold ${
+                                        project.status === 0
+                                            ? "text-amber-400"
+                                            : "text-green-600"
+                                    }`}
+                                >
+                                    {project.status === 0
+                                        ? "Draf"
+                                        : "Terkalkulasi"}
+                                </dd>
+                                <dt className="mt-3 text-sm text-gray-500">
+                                    Gambar
+                                </dt>
+                                <dd>
+                                    {project.image ? (
+                                        <img
+                                            src={`/storage/${project.image}`}
+                                            alt={project.name}
+                                            width={100}
+                                        />
+                                    ) : (
+                                        "Tidak Ada gambar"
+                                    )}
+                                </dd>
+                            </div>
+                            <div>
+                                <dt className="text-sm text-gray-500">
+                                    Dibuat Pada
+                                </dt>
+                                <dd className="font-semibold">
+                                    {formatTimestamp(project.created_at)}
+                                </dd>
+                                <dt className="mt-3 text-sm text-gray-500">
+                                    Diperbarui Pada
+                                </dt>
+                                <dd className="font-semibold">
+                                    {formatTimestamp(project.updated_at)}
+                                </dd>
+                            </div>
+                        </div>
+                        <div className="flex justify-end gap-4 mt-4">
+                            <Link
+                                href={route("projects.edit", project)}
+                                className="px-4 py-2 font-semibold text-white transition bg-indigo-600 rounded-lg shadow hover:bg-indigo-400"
+                            >
+                                Edit
+                            </Link>
+
+                            <Dialog
+                                open={isDeleteOpen}
+                                onClose={() => setIsDeleteOpen(false)}
+                                className="relative z-50"
+                            >
+                                <div
+                                    className="fixed inset-0 bg-black/30"
+                                    aria-hidden="true"
+                                />
+                                <div className="fixed inset-0 flex items-center justify-center p-4">
+                                    <Dialog.Panel className="max-w-sm p-6 mx-auto bg-white rounded-xl">
+                                        <Dialog.Title className="text-xl font-bold">
+                                            Hapus Proyek?
+                                        </Dialog.Title>
+                                        <Dialog.Description className="text-sm text-gray-400">
+                                            Aksi ini akan menghapus proyek anda
+                                        </Dialog.Description>
+
+                                        <p className="mt-4 ">
+                                            Apakah anda yakin ingin menghapus
+                                            proyek{" "}
+                                            <span className="text-red-500">
+                                                "{project.name}"
+                                            </span>
+                                            ? Semua data tekait proyek akan
+                                            dihapus dan tidak dapat
+                                            dikembalikan.
+                                        </p>
+
+                                        <div className="flex justify-end gap-2 mt-4">
+                                            <button
+                                                onClick={() =>
+                                                    setIsDeleteOpen(false)
+                                                }
+                                                className="px-3 py-2 text-sm font-semibold text-white transition bg-indigo-600 rounded-lg shadow hover:bg-indigo-400"
+                                            >
+                                                Batal
+                                            </button>
+                                            <button
+                                                onClick={handleDelete}
+                                                className="px-3 py-2 text-sm font-semibold text-white transition bg-red-600 rounded-lg shadow hover:bg-red-400"
+                                            >
+                                                Hapus
+                                            </button>
+                                        </div>
+                                    </Dialog.Panel>
+                                </div>
+                            </Dialog>
+                            <button
+                                onClick={() => setIsDeleteOpen(true)}
+                                className={`px-4 py-2 font-semibold text-white transition bg-red-600 rounded-lg shadow hover:bg-red-400 ${
+                                    processing && "bg-red-200"
+                                }`}
+                            >
+                                Hapus
+                            </button>
+                        </div>
+                    </FormCard>
+                </div>
             </div>
         </Authenticated>
     );

@@ -24,7 +24,7 @@ export default function Dashboard(props) {
                     <div className="grid grid-cols-1 gap-2 md:gap-6 md:grid-cols-2">
                         <SummaryCard
                             title="Proyek"
-                            value={`${projectsCount} Prouek`}
+                            value={`${projectsCount} Proyek`}
                             redirect={route("projects")}
                         />
                         <SummaryCard

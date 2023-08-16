@@ -7,6 +7,10 @@ app = "cocomo"
 primary_region = "sin"
 console_command = "php /var/www/html/artisan tinker"
 
+[mounts]
+  source="cocomovol"
+  destination="/var/www/html/storage"
+
 [build]
   [build.args]
     NODE_VERSION = "18"

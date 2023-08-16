@@ -1,0 +1,1 @@
+php /var/www/html/artisan migrate:fresh --force && php /var/www/html/artisan storage:link
