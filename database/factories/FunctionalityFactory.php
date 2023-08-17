@@ -23,7 +23,7 @@ class FunctionalityFactory extends Factory
             'exiq' => json_encode(['easy' => 1, 'moderate' => 1, 'hard' => 1]),
             'ilof' => json_encode(['easy' => 1, 'moderate' => 1, 'hard' => 1]),
             'elof' => json_encode(['easy' => 1, 'moderate' => 1, 'hard' => 1]),
-            'ksloc' => null,
+            'ksloc' => 1,
         ];
     }
 }

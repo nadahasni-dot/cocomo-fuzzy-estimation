@@ -38,7 +38,7 @@ export default function Dashboard(props) {
                 <div className="px-4 mx-auto mt-8 max-w-7xl sm:px-6 lg:px-8">
                     <div className="flex flex-row justify-between">
                         <h2 className="text-xl font-bold">
-                            Your Latest Calculations
+                            Kalkulasi Terbaru Anda
                         </h2>
                         <Link
                             href={route("projects")}

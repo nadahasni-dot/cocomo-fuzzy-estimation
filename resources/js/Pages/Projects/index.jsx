@@ -12,11 +12,11 @@ export default function Projects(props) {
             errors={props.errors}
             header={
                 <h2 className="text-xl font-semibold leading-tight text-gray-800">
-                    Projects
+                    Proyek
                 </h2>
             }
         >
-            <Head title="Projects" />
+            <Head title="Proyek" />
 
             <div className="py-12">
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -29,7 +29,7 @@ export default function Projects(props) {
                         </Link>
                     </div>
                     <div className="flex flex-row justify-between mt-4">
-                        <h2 className="text-xl font-bold">Draft Projects</h2>
+                        <h2 className="text-xl font-bold">Draf Proyek</h2>
                     </div>
                     {draftProjects.length === 0 && (
                         <div className="py-10 text-center">
@@ -52,7 +52,7 @@ export default function Projects(props) {
                     </div>
                     <div className="flex flex-row justify-between mt-4">
                         <h2 className="text-xl font-bold">
-                            Estimated Projects
+                            Proyek Ter-estimasi
                         </h2>
                     </div>
                     {projects.length === 0 && (

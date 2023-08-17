@@ -32,7 +32,7 @@ export default function Authenticated({ auth, header, children }) {
                                     href={route("projects")}
                                     active={route().current("projects")}
                                 >
-                                    Projects
+                                    Proyek
                                 </NavLink>
                             </div>
                         </div>
@@ -137,7 +137,7 @@ export default function Authenticated({ auth, header, children }) {
                             href={route("projects")}
                             active={route().current("projects")}
                         >
-                            Projects
+                            Proyek
                         </ResponsiveNavLink>
                     </div>
 

@@ -36,6 +36,6 @@ class Functionality extends Model
 
     public function languageFunctionPoint(): HasOne
     {
-        return $this->hasOne(LanguageFunctionPoint::class);
+        return $this->hasOne(LanguageFunctionPoint::class, 'id', 'language_function_point_id');
     }
 }

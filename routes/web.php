@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FunctionalityController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ]
     ])->except(['update']);
     Route::post('/projects/{project}/update', [ProjectController::class, 'update'])->name('projects.update');
+
+    Route::resource('/functionalities', FunctionalityController::class);
 });
 
 

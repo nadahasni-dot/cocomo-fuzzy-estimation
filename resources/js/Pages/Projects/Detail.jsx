@@ -6,10 +6,11 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { formatTimestamp } from "@/Utils/date";
+import Functionalities from "./Functionalities";
 
 export default function Projects(props) {
-    const { project, ksloc } = props;
-    const { functionalities, scaleFactor, effortMultiplier } = project;
+    const { project, ksloc, functionalities } = props;
+    const { scaleFactor, effortMultiplier } = project;
 
     const [isDeleteOpen, setIsDeleteOpen] = useState(false);
 
@@ -40,7 +41,7 @@ export default function Projects(props) {
                 </h2>
             }
         >
-            <Head title="Projects" />
+            <Head title="Proyek" />
 
             <div className="py-12">
                 <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -77,7 +78,7 @@ export default function Projects(props) {
                         <ProjectSummaryCard
                             title="Fungsionalitas"
                             icon="/icons/functionalities.svg"
-                            value={`${functionalities.length} Fungsionalitas`}
+                            value={`${functionalities.data.length} Fungsionalitas`}
                             description="Jumlah modul/fungsionalitas pada proyek"
                             className="md:col-span-2 border-fuchsia-600"
                         />
@@ -159,8 +160,13 @@ export default function Projects(props) {
                         <div className="flex justify-end gap-4 mt-4">
                             <Link
                                 href={route("projects.edit", project)}
-                                className="px-4 py-2 font-semibold text-white transition bg-indigo-600 rounded-lg shadow hover:bg-indigo-400"
+                                className="px-3 py-1 flex gap-1 items-center font-semibold text-white transition bg-indigo-600 rounded-lg shadow hover:bg-indigo-400"
                             >
+                                <img
+                                    src="/icons/edit.svg"
+                                    alt="edit"
+                                    width={20}
+                                />{" "}
                                 Edit
                             </Link>
 
@@ -214,14 +220,25 @@ export default function Projects(props) {
                             </Dialog>
                             <button
                                 onClick={() => setIsDeleteOpen(true)}
-                                className={`px-4 py-2 font-semibold text-white transition bg-red-600 rounded-lg shadow hover:bg-red-400 ${
+                                className={`flex gap-1 items-center px-4 py-2 font-semibold text-white transition bg-red-600 rounded-lg shadow hover:bg-red-400 ${
                                     processing && "bg-red-200"
                                 }`}
                             >
+                                <img
+                                    src="/icons/delete.svg"
+                                    alt="delete"
+                                    width={20}
+                                />{" "}
                                 Hapus
                             </button>
                         </div>
                     </FormCard>
+
+                    {/* Functionalities */}
+                    <Functionalities
+                        functionalities={functionalities}
+                        project={project}
+                    />
                 </div>
             </div>
         </Authenticated>

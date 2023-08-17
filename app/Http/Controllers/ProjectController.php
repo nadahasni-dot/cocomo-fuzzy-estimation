@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Project\CreateProjectRequest;
 use App\Http\Requests\Project\EditProjectRequest;
+use App\Http\Resources\FunctionalityCollection;
+use App\Http\Resources\FunctionalityResource;
+use App\Models\Functionality;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class ProjectController extends Controller
 {
+    public $defaultLoad = 5;
+
     /**
      * Display a listing of the resource.
      *
@@ -75,9 +80,20 @@ class ProjectController extends Controller
             ->first();
         $ksloc = $project->ksloc();
 
+        $query = Functionality::query();
+        $query->where('project_id', $project->id);
+
+        if ($request->q) {
+            $query->where('name', 'like', '%' . $request->q . '%')
+                ->orWhere('description', 'like', '%' . $request->q . '%');
+        }
+
+        $functionalities = new FunctionalityCollection($query->paginate($request->load ?? $this->defaultLoad));
+
         return Inertia::render('Projects/Detail', [
             'project' => $project,
             'ksloc' => $ksloc,
+            'functionalities' => $functionalities,
         ]);
     }
 
