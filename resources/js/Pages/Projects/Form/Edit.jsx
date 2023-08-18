@@ -31,9 +31,6 @@ export default function Edit(props) {
         e.preventDefault();
 
         post(route("projects.update", project), {
-            onBefore: () => {
-                console.log(data);
-            },
             onSuccess: () => {
                 toast.success("Berhasil Memperbarui Detail Proyek");
             },

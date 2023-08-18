@@ -37,7 +37,7 @@ export default function Functionalities({ functionalities, project }) {
             className="mt-6"
             action={
                 <Link
-                    href={route("functionalities.create")}
+                    href={route("functionalities.create", project)}
                     className="px-3 py-1 text-sm text-white transition bg-indigo-600 rounded-lg hover:bg-indigo-300"
                 >
                     + Fungsionalitas
@@ -106,7 +106,7 @@ export default function Functionalities({ functionalities, project }) {
                             <td
                                 colspan="5"
                                 scope="col"
-                                className="text-center py-4 bg-indigo-50"
+                                className="py-4 text-center bg-indigo-50"
                             >
                                 Tidak Ada Fungsionalitas
                             </td>
@@ -117,6 +117,7 @@ export default function Functionalities({ functionalities, project }) {
                                 meta={meta}
                                 index={index + 1}
                                 key={functionality.id}
+                                project={project}
                                 functionality={functionality}
                             />
                         ))
@@ -125,7 +126,7 @@ export default function Functionalities({ functionalities, project }) {
             </table>
 
             {/* pagination */}
-            <ul className="flex justify-center items-center mt-2 gap-2">
+            <ul className="flex items-center justify-center gap-2 mt-2">
                 {meta.links.map((item, index) => {
                     let page;
 

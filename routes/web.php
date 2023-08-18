@@ -41,7 +41,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     ])->except(['update']);
     Route::post('/projects/{project}/update', [ProjectController::class, 'update'])->name('projects.update');
 
-    Route::resource('/functionalities', FunctionalityController::class);
+    Route::resource('/functionalities', FunctionalityController::class)->except(['create', 'store', 'destroy']);
+    Route::get('/projects/{project}/functionalities/create', [FunctionalityController::class, 'create'])->name('functionalities.create');
+    Route::post('/projects/{project}/functionalities', [FunctionalityController::class, 'store'])->name('functionalities.store');
+    Route::delete('/projects/{project}/functionalities/{functionality}', [FunctionalityController::class, 'destroy'])->name('functionalities.destroy');
 });
 
 

@@ -3,7 +3,12 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { toast } from "react-toastify";
 
-export default function FunctionalityRowItem({ index, functionality, meta }) {
+export default function FunctionalityRowItem({
+    index,
+    functionality,
+    project,
+    meta,
+}) {
     const { name, description, languageFunctionPoint, ksloc } = functionality;
 
     const [isDeleteOpen, setIsDeleteOpen] = useState(false);
@@ -15,7 +20,7 @@ export default function FunctionalityRowItem({ index, functionality, meta }) {
     const handleDelete = (e) => {
         if (processing) return;
 
-        destroy(route("functionalities.destroy", functionality), {
+        destroy(route("functionalities.destroy", { functionality, project }), {
             onSuccess: () => {
                 toast.success("Berhasil Menghapus Fungsionalitas");
             },
@@ -53,7 +58,7 @@ export default function FunctionalityRowItem({ index, functionality, meta }) {
                 {ksloc}
             </td>
             <td scope="col" className="py-2 pl-2">
-                <div className="flex gap-2 items-center">
+                <div className="flex items-center gap-2">
                     <Link
                         href={route("functionalities.edit", functionality)}
                         as="button"

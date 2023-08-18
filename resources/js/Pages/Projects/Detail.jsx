@@ -9,7 +9,7 @@ import { formatTimestamp } from "@/Utils/date";
 import Functionalities from "./Functionalities";
 
 export default function Projects(props) {
-    const { project, ksloc, functionalities } = props;
+    const { project, ksloc, functionalities, countFunctionality } = props;
     const { scaleFactor, effortMultiplier } = project;
 
     const [isDeleteOpen, setIsDeleteOpen] = useState(false);
@@ -78,7 +78,7 @@ export default function Projects(props) {
                         <ProjectSummaryCard
                             title="Fungsionalitas"
                             icon="/icons/functionalities.svg"
-                            value={`${functionalities.data.length} Fungsionalitas`}
+                            value={`${countFunctionality} Fungsionalitas`}
                             description="Jumlah modul/fungsionalitas pada proyek"
                             className="md:col-span-2 border-fuchsia-600"
                         />
@@ -160,7 +160,7 @@ export default function Projects(props) {
                         <div className="flex justify-end gap-4 mt-4">
                             <Link
                                 href={route("projects.edit", project)}
-                                className="px-3 py-1 flex gap-1 items-center font-semibold text-white transition bg-indigo-600 rounded-lg shadow hover:bg-indigo-400"
+                                className="flex items-center gap-1 px-3 py-1 font-semibold text-white transition bg-indigo-600 rounded-lg shadow hover:bg-indigo-400"
                             >
                                 <img
                                     src="/icons/edit.svg"

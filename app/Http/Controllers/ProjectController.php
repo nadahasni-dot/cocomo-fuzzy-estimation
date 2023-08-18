@@ -82,6 +82,7 @@ class ProjectController extends Controller
 
         $query = Functionality::query();
         $query->where('project_id', $project->id);
+        $query->orderBy('id', 'desc');
 
         if ($request->q) {
             $query->where('name', 'like', '%' . $request->q . '%')
@@ -90,10 +91,13 @@ class ProjectController extends Controller
 
         $functionalities = new FunctionalityCollection($query->paginate($request->load ?? $this->defaultLoad));
 
+        $countFunctionality = Functionality::where('project_id', $project->id)->count();
+
         return Inertia::render('Projects/Detail', [
             'project' => $project,
             'ksloc' => $ksloc,
             'functionalities' => $functionalities,
+            'countFunctionality' => $countFunctionality,
         ]);
     }
 

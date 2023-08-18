@@ -31,7 +31,7 @@ class Functionality extends Model
 
     public function project(): BelongsTo
     {
-        return $this->belongsTo(Project::class);
+        return $this->belongsTo(Project::class, 'id', 'project_id');
     }
 
     public function languageFunctionPoint(): HasOne
