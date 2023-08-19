@@ -45,7 +45,7 @@ class FunctionalityController extends Controller
     public function store(CreateFunctionalityRequest $request, Project $project)
     {
         $data = $request->validated();
-        $language = LanguageFunctionPoint::where('id', $data['languageFunctionPointId']['value'])->first();        
+        $language = LanguageFunctionPoint::where('id', $data['languageFunctionPointId']['value'])->first();
 
         $functionality = Functionality::create([
             'project_id'  => $project->id,
@@ -84,9 +84,18 @@ class FunctionalityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Functionality $functionality)
+    public function edit(Project $project, Functionality $functionality)
     {
-        return $functionality;
+        $languageFunctionPoints = LanguageFunctionPoint::all();
+        $functionality = $functionality
+            ->where('id', $functionality->id)
+            ->with(['languageFunctionPoint'])->first();
+
+        return Inertia::render('Functionality/Form/Edit', [
+            'languageFunctionPoints' => $languageFunctionPoints,
+            'project' => $project,
+            'functionality' => $functionality,
+        ]);
     }
 
     /**
@@ -96,9 +105,26 @@ class FunctionalityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateFunctionalityRequest $request,  Project $project, Functionality $functionality)
     {
-        //
+        $data = $request->validated();
+        $language = LanguageFunctionPoint::where('id', $data['languageFunctionPointId']['value'])->first();
+
+        $functionality->name = $data['name'];
+        $functionality->description = $data['description'];
+        $functionality->language_function_point_id = $data['languageFunctionPointId']['value'];
+        $functionality->exi = json_encode($data['exi']);
+        $functionality->exo = json_encode($data['exo']);
+        $functionality->exiq = json_encode($data['exiq']);
+        $functionality->ilof = json_encode($data['ilof']);
+        $functionality->elof = json_encode($data['elof']);
+        $functionality->ksloc = $this->calculateKSLOC($data['exi'], $data['exo'], $data['exiq'], $data['ilof'], $data['elof'], $language->conversion_rate);
+
+        if ($functionality->save()) {
+            return redirect()->route('projects.show', [$project]);
+        }
+
+        return redirect()->back()->with('message', 'Gagal menyimpan fungsionalitas');
     }
 
     /**

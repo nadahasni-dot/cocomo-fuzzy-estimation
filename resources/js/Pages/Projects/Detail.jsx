@@ -12,6 +12,7 @@ export default function Projects(props) {
     const { project, ksloc, functionalities, countFunctionality } = props;
     const { scaleFactor, effortMultiplier } = project;
 
+    const [isImageOpen, setIsImageOpen] = useState(false);
     const [isDeleteOpen, setIsDeleteOpen] = useState(false);
 
     const { processing, delete: destroy } = useForm({
@@ -132,11 +133,40 @@ export default function Projects(props) {
                                 </dt>
                                 <dd>
                                     {project.image ? (
-                                        <img
-                                            src={`/storage/${project.image}`}
-                                            alt={project.name}
-                                            width={100}
-                                        />
+                                        <div>
+                                            <Dialog
+                                                open={isImageOpen}
+                                                onClose={() =>
+                                                    setIsImageOpen(false)
+                                                }
+                                                className="relative z-50"
+                                            >
+                                                <div
+                                                    className="fixed inset-0 bg-black/30"
+                                                    aria-hidden="true"
+                                                />
+                                                <div className="fixed inset-0 flex items-center justify-center p-4">
+                                                    <Dialog.Panel className="max-w-4xl p-6 mx-auto bg-white rounded-xl">
+                                                        <Dialog.Title className="text-xl font-bold">
+                                                            {project.title}
+                                                        </Dialog.Title>
+                                                        <img
+                                                            src={`/storage/${project.image}`}
+                                                            alt={project.name}
+                                                            className="w-full"
+                                                        />
+                                                    </Dialog.Panel>
+                                                </div>
+                                            </Dialog>
+                                            <img
+                                                src={`/storage/${project.image}`}
+                                                alt={project.name}
+                                                width={150}
+                                                onClick={() =>
+                                                    setIsImageOpen(true)
+                                                }
+                                            />
+                                        </div>
                                     ) : (
                                         "Tidak Ada gambar"
                                     )}

@@ -60,7 +60,7 @@ export default function FunctionalityRowItem({
             <td scope="col" className="py-2 pl-2">
                 <div className="flex items-center gap-2">
                     <Link
-                        href={route("functionalities.edit", functionality)}
+                        href={route("functionalities.edit", {project, functionality})}
                         as="button"
                         className="flex items-center px-3 py-1 text-white bg-indigo-600 rounded-lg"
                     >
