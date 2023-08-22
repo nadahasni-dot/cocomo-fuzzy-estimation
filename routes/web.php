@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FunctionalityController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ScaleFactorController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -42,9 +43,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/projects/{project}/update', [ProjectController::class, 'update'])->name('projects.update');
 
     Route::resource('/projects/{project}/functionalities', FunctionalityController::class);
-    // Route::get('/projects/{project}/functionalities/create', [FunctionalityController::class, 'create'])->name('functionalities.create');
-    // Route::post('/projects/{project}/functionalities', [FunctionalityController::class, 'store'])->name('functionalities.store');
-    // Route::delete('/projects/{project}/functionalities/{functionality}', [FunctionalityController::class, 'destroy'])->name('functionalities.destroy');
+    Route::resource('/projects/{project}/scalefactor', ScaleFactorController::class)->except(['index, destroy, show']);
 });
 
 

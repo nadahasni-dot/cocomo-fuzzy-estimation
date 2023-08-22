@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Project\CreateProjectRequest;
 use App\Http\Requests\Project\EditProjectRequest;
 use App\Http\Resources\FunctionalityCollection;
-use App\Http\Resources\FunctionalityResource;
+use App\Models\EffortMultiplier;
 use App\Models\Functionality;
 use App\Models\Project;
+use App\Models\ScaleFactor;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -75,9 +76,6 @@ class ProjectController extends Controller
      */
     public function show(Request $request, Project $project)
     {
-        $project = Project::where('id', $project->id)
-            ->with(['functionalities', 'scaleFactor', 'effortMultiplier'])
-            ->first();
         $ksloc = $project->ksloc();
 
         $query = Functionality::query();
@@ -90,14 +88,17 @@ class ProjectController extends Controller
         }
 
         $functionalities = new FunctionalityCollection($query->paginate($request->load ?? $this->defaultLoad));
-
         $countFunctionality = Functionality::where('project_id', $project->id)->count();
+        $scaleFactor = ScaleFactor::where('project_id', $project->id)->first();
+        $effortMultiplier = EffortMultiplier::where('project_id', $project->id)->first();
 
         return Inertia::render('Projects/Detail', [
             'project' => $project,
             'ksloc' => $ksloc,
             'functionalities' => $functionalities,
             'countFunctionality' => $countFunctionality,
+            'scaleFactor' => $scaleFactor,
+            'effortMultiplier' => $effortMultiplier,
         ]);
     }
 

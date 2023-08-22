@@ -7,10 +7,17 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { formatTimestamp } from "@/Utils/date";
 import Functionalities from "./Functionalities";
+import CalculateCard from "@/Components/Project/CalculateCard";
 
 export default function Projects(props) {
-    const { project, ksloc, functionalities, countFunctionality } = props;
-    const { scaleFactor, effortMultiplier } = project;
+    const {
+        project,
+        ksloc,
+        functionalities,
+        countFunctionality,
+        scaleFactor,
+        effortMultiplier,
+    } = props;
 
     const [isImageOpen, setIsImageOpen] = useState(false);
     const [isDeleteOpen, setIsDeleteOpen] = useState(false);
@@ -30,6 +37,20 @@ export default function Projects(props) {
                 toast.error(error);
             },
         });
+    };
+
+    const checkIsCalculateAble = () => {
+        return (
+            effortMultiplier?.effort_multiplier &&
+            scaleFactor?.scaleFactor &&
+            ksloc > 0
+        );
+    };
+
+    const handleCalculate = () => {
+        console.log(ksloc, "KSLOC");
+        console.log(scaleFactor?.scale_factor, "SCALE FACTOR");
+        console.log(effortMultiplier?.effort_multiplier, "EFFORT MULTIPLIER");
     };
 
     return (
@@ -268,6 +289,52 @@ export default function Projects(props) {
                     <Functionalities
                         functionalities={functionalities}
                         project={project}
+                    />
+
+                    {/* Scale Factor */}
+                    <CalculateCard
+                        className={`${
+                            scaleFactor?.scale_factor
+                                ? "bg-green-500"
+                                : "bg-amber-400"
+                        } mt-6`}
+                        title="Faktor Skala"
+                        description="Lengkapi formulir faktor skala (Scale Factors) untuk mendapatkan perhitungan estimasi"
+                        value={scaleFactor?.scale_factor}
+                        href={route(
+                            scaleFactor?.scale_factor
+                                ? "scalefactor.edit"
+                                : "scalefactor.create",
+                            { project, scalefactor: scaleFactor }
+                        )}
+                    />
+
+                    {/* Effort Multiplier */}
+                    <CalculateCard
+                        className={`${
+                            effortMultiplier?.effort_multiplier
+                                ? "bg-green-500"
+                                : "bg-amber-400"
+                        } mt-6`}
+                        title="Pengganda Usaha"
+                        description="Lengkapi formulir (Effort Multiplier) untuk mendapatkan perhitungan estimasi"
+                        value={effortMultiplier?.effort_multiplier}
+                        href="#"
+                    />
+
+                    {/* CALCULATE */}
+                    <CalculateCard
+                        isButton
+                        className={`${
+                            checkIsCalculateAble()
+                                ? "bg-green-500"
+                                : "bg-gray-500"
+                        } mt-6 w-full`}
+                        title="Kalkulasi Estimasi"
+                        description="Lengkapi kebutuhan fungsional, faktor skala, dan pengganda usaha terlebih dahulu"
+                        value={effortMultiplier?.effort_multiplier}
+                        enabled={checkIsCalculateAble()}
+                        handleClick={handleCalculate}
                     />
                 </div>
             </div>
