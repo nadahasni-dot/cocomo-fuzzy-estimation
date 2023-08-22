@@ -16,8 +16,8 @@ LABEL fly_launch_runtime="laravel"
 # copy application code, skipping files based on .dockerignore
 COPY . /var/www/html
 
-RUN composer install --optimize-autoloader --no-dev \
-    && mkdir -p storage/logs \
+RUN composer install \
+    && mkdir -p storage/logs \    
     && php artisan optimize:clear \
     && chown -R www-data:www-data /var/www/html \
     && sed -i 's/protected \$proxies/protected \$proxies = "*"/g' app/Http/Middleware/TrustProxies.php \
