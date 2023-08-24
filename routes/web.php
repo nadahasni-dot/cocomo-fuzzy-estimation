@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CalculateController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EffortMultiplierController;
 use App\Http\Controllers\FunctionalityController;
@@ -46,6 +47,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/projects/{project}/functionalities', FunctionalityController::class);
     Route::resource('/projects/{project}/scalefactor', ScaleFactorController::class)->except(['index, destroy, show']);
     Route::resource('/projects/{project}/effortmultiplier', EffortMultiplierController::class)->except(['index, destroy, show']);
+
+    Route::post('/projects/{project}/calculate', [CalculateController::class, 'index'])->name('projects.calculate');
 });
 
 

@@ -8,6 +8,8 @@ import { Dialog } from "@headlessui/react";
 import { formatTimestamp } from "@/Utils/date";
 import Functionalities from "./Functionalities";
 import CalculateCard from "@/Components/Project/CalculateCard";
+import { Inertia } from "@inertiajs/inertia";
+import { currencyFormat, roundNumber } from "@/Utils/number_format";
 
 export default function Projects(props) {
     const {
@@ -45,9 +47,14 @@ export default function Projects(props) {
         ksloc > 0;
 
     const handleCalculate = () => {
-        console.log(ksloc, "KSLOC");
-        console.log(scaleFactor?.scale_factor, "SCALE FACTOR");
-        console.log(effortMultiplier?.effort_multiplier, "EFFORT MULTIPLIER");
+        Inertia.post(route("projects.calculate", project), null, {
+            onSuccess: () => {
+                toast.success("Berhasil Menyimpan Kalkulasi");
+            },
+            onError: (error) => {
+                toast.error(error);
+            },
+        });
     };
 
     return (
@@ -69,28 +76,40 @@ export default function Projects(props) {
                         <ProjectSummaryCard
                             title="KSLOC"
                             icon="/icons/code.svg"
-                            value={ksloc ?? "-"}
+                            value={ksloc ? roundNumber(ksloc) : "-"}
                             description="Estimasi jumlah baris kode (Kilo Source Line of Code)"
                             className="border-indigo-600"
                         />
                         <ProjectSummaryCard
                             title="Estimasi Waktu"
                             icon="/icons/clock.svg"
-                            value={`${project.est_time ?? "-"} Bulan`}
+                            value={`${
+                                project.est_time
+                                    ? roundNumber(project.est_time)
+                                    : "-"
+                            } Bulan`}
                             description="Estimasi waktu pengerjaan proyek dalam satuan bulan"
                             className="border-amber-400"
                         />
                         <ProjectSummaryCard
                             title="Estimasi Staf"
                             icon="/icons/staff.svg"
-                            value={`${project.est_staff ?? "-"} Orang`}
+                            value={`${
+                                project.est_staff
+                                    ? roundNumber(project.est_staff)
+                                    : "-"
+                            } Orang`}
                             description="Estimasi jumlah staf yang diperlukan untuk menyelesaikan proyek"
                             className="border-sky-600"
                         />
                         <ProjectSummaryCard
                             title="Estimasi Biaya"
                             icon="/icons/cost.svg"
-                            value={`Rp. ${project.est_cost ?? "-"}`}
+                            value={
+                                project.est_cost
+                                    ? currencyFormat(project.est_cost)
+                                    : "-"
+                            }
                             description="Estimasi biaya staff yang diperlukan untuk menyelesaikan proyek"
                             className="border-green-600"
                         />
@@ -104,7 +123,11 @@ export default function Projects(props) {
                         <ProjectSummaryCard
                             title="Estimasi Usaha"
                             icon="/icons/effort.svg"
-                            value={`${project.est_effort ?? "-"} Person Month`}
+                            value={`${
+                                project.est_effort
+                                    ? roundNumber(project.est_effort)
+                                    : "-"
+                            } Person Month`}
                             description="Estimasi usaha untuk menyelesaikan proyek dalam satuan (Person Month)"
                             className="md:col-span-2 border-lime-600"
                         />
