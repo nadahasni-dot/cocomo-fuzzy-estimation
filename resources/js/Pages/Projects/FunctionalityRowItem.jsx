@@ -41,7 +41,7 @@ export default function FunctionalityRowItem({
     };
 
     return (
-        <tr>
+        <tr className="transition hover:bg-slate-100">
             <td scope="col" className="py-2 font-bold">
                 {getDisplayNumber(index)}
             </td>
@@ -60,9 +60,12 @@ export default function FunctionalityRowItem({
             <td scope="col" className="py-2 pl-2">
                 <div className="flex items-center gap-2">
                     <Link
-                        href={route("functionalities.edit", {project, functionality})}
+                        href={route("functionalities.edit", {
+                            project,
+                            functionality,
+                        })}
                         as="button"
-                        className="flex items-center px-3 py-1 text-white bg-indigo-600 rounded-lg"
+                        className="flex items-center px-3 py-1 text-white transition bg-indigo-600 rounded-lg hover:opacity-70"
                     >
                         <img src="/icons/edit.svg" alt="edit" width={16} /> Edit
                     </Link>
@@ -115,7 +118,7 @@ export default function FunctionalityRowItem({
 
                     <button
                         onClick={() => setIsDeleteOpen(true)}
-                        className="flex items-center px-3 py-1 text-white bg-red-500 rounded-lg"
+                        className="flex items-center px-3 py-1 text-white transition bg-red-500 rounded-lg hover:opacity-70"
                     >
                         <img src="/icons/delete.svg" alt="delete" width={16} />{" "}
                         Hapus

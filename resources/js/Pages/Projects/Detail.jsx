@@ -39,13 +39,10 @@ export default function Projects(props) {
         });
     };
 
-    const checkIsCalculateAble = () => {
-        return (
-            effortMultiplier?.effort_multiplier &&
-            scaleFactor?.scaleFactor &&
-            ksloc > 0
-        );
-    };
+    const checkIsCalculateAble = () =>
+        effortMultiplier?.effort_multiplier &&
+        scaleFactor?.scale_factor &&
+        ksloc > 0;
 
     const handleCalculate = () => {
         console.log(ksloc, "KSLOC");
@@ -319,7 +316,12 @@ export default function Projects(props) {
                         title="Pengganda Usaha"
                         description="Lengkapi formulir (Effort Multiplier) untuk mendapatkan perhitungan estimasi"
                         value={effortMultiplier?.effort_multiplier}
-                        href="#"
+                        href={route(
+                            effortMultiplier?.effort_multiplier
+                                ? "effortmultiplier.edit"
+                                : "effortmultiplier.create",
+                            { project, effortmultiplier: effortMultiplier }
+                        )}
                     />
 
                     {/* CALCULATE */}
@@ -327,12 +329,11 @@ export default function Projects(props) {
                         isButton
                         className={`${
                             checkIsCalculateAble()
-                                ? "bg-green-500"
+                                ? "bg-sky-500"
                                 : "bg-gray-500"
                         } mt-6 w-full`}
-                        title="Kalkulasi Estimasi"
+                        title="Kalkulasi Estimasi Bisa Dilakukan"
                         description="Lengkapi kebutuhan fungsional, faktor skala, dan pengganda usaha terlebih dahulu"
-                        value={effortMultiplier?.effort_multiplier}
                         enabled={checkIsCalculateAble()}
                         handleClick={handleCalculate}
                     />

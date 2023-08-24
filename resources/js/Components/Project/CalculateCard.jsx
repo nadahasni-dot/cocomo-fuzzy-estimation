@@ -15,8 +15,8 @@ export default function CalculateCard({
     return (
         <Link
             href={href}
-            as={isButton ? "button" : "div"}
-            className={`${className} p-4 rounded-lg shadow hover:opacity-70 transition`}
+            as={isButton ? "button" : "a"}
+            className={`${className} p-4 rounded-lg shadow hover:opacity-70 transition block`}
             onClick={(e) => {
                 if (!isButton) return;
                 if (isButton) {
