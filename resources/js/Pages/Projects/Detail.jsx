@@ -153,8 +153,8 @@ export default function Projects(props) {
                                     Rerata Biaya Staff
                                 </dt>
                                 <dd className="font-semibold">
-                                    {project.avgStaffCost
-                                        ? currencyFormat(project.avgStaffCost)
+                                    {project.avg_staff_cost
+                                        ? currencyFormat(project.avg_staff_cost)
                                         : "-"}
                                 </dd>
                                 <dt className="mt-3 text-sm text-gray-500">
