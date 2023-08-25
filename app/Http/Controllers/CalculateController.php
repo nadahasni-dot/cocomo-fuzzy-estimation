@@ -43,6 +43,7 @@ class CalculateController extends Controller
         $project->est_time = $timeEstimation;
         $project->est_staff = $staffEstimation;
         $project->est_cost = $totalCostEstimation;
+        $project->status = 1;
 
         if ($project->save()) {
             return redirect()->route('projects.show', [$project]);
