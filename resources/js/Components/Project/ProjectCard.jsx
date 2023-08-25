@@ -1,3 +1,4 @@
+import { currencyFormat, roundNumber } from "@/Utils/number_format";
 import { Link } from "@inertiajs/inertia-react";
 import React from "react";
 
@@ -24,7 +25,7 @@ export default function ProjectCard({
                         Estimasi Usaha
                     </dd>
                     <dt className="font-bold text-slate-950">
-                        {effort ?? "-"} PM
+                        {effort ? roundNumber(effort) : "-"} PM
                     </dt>
                 </div>
                 <div>
@@ -32,7 +33,7 @@ export default function ProjectCard({
                         Estimasi Waktu
                     </dd>
                     <dt className="font-bold text-slate-950">
-                        {time ?? "-"} Bulan
+                        {time ? roundNumber(time) : "-"} Bulan
                     </dt>
                 </div>
                 <div>
@@ -40,7 +41,7 @@ export default function ProjectCard({
                         Estimasi Staf
                     </dd>
                     <dt className="font-bold text-slate-950">
-                        {people ?? "-"} Staf
+                        {people ? roundNumber(people) : "-"} Staf
                     </dt>
                 </div>
                 <div>
@@ -48,7 +49,7 @@ export default function ProjectCard({
                         Estimasi Biaya
                     </dd>
                     <dt className="font-bold text-slate-950">
-                        Rp. {cost ?? "-"}
+                        {cost ? currencyFormat(cost) : "-"}
                     </dt>
                 </div>
             </div>

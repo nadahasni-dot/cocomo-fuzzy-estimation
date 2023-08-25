@@ -20,7 +20,7 @@ export default function Form(props) {
         ruse: 0.95,
         time: 1,
         stor: 1,
-        pvol: 0.82,
+        pvol: 0.87,
         aplex: -1.22,
         plex: -1.19,
         ltex: -1.2,
@@ -513,7 +513,7 @@ export default function Form(props) {
                                                         onChange={
                                                             onHandleChange
                                                         }
-                                                        min={0.82}
+                                                        min={0.87}
                                                         max={1.3}
                                                         step={0.01}
                                                         className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-indigo-500 dark:bg-gray-300"

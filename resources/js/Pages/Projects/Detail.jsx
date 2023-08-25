@@ -153,7 +153,9 @@ export default function Projects(props) {
                                     Rerata Biaya Staff
                                 </dt>
                                 <dd className="font-semibold">
-                                    Rp.{project.avgStaffCost ?? "-"}
+                                    {project.avgStaffCost
+                                        ? currencyFormat(project.avgStaffCost)
+                                        : "-"}
                                 </dd>
                                 <dt className="mt-3 text-sm text-gray-500">
                                     Status
@@ -320,7 +322,7 @@ export default function Projects(props) {
                         } mt-6`}
                         title="Faktor Skala"
                         description="Lengkapi formulir faktor skala (Scale Factors) untuk mendapatkan perhitungan estimasi"
-                        value={scaleFactor?.scale_factor}
+                        value={roundNumber(scaleFactor?.scale_factor)}
                         href={route(
                             scaleFactor?.scale_factor
                                 ? "scalefactor.edit"
@@ -338,7 +340,7 @@ export default function Projects(props) {
                         } mt-6`}
                         title="Pengganda Usaha"
                         description="Lengkapi formulir (Effort Multiplier) untuk mendapatkan perhitungan estimasi"
-                        value={effortMultiplier?.effort_multiplier}
+                        value={roundNumber(effortMultiplier?.effort_multiplier)}
                         href={route(
                             effortMultiplier?.effort_multiplier
                                 ? "effortmultiplier.edit"
