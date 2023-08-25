@@ -24,7 +24,7 @@ export default function ProjectCard({
                     <dd className="text-xs font-semibold text-slate-500">
                         Estimasi Usaha
                     </dd>
-                    <dt className="font-bold text-slate-950">
+                    <dt className="text-sm font-bold text-slate-950">
                         {effort ? roundNumber(effort) : "-"} PM
                     </dt>
                 </div>
@@ -32,7 +32,7 @@ export default function ProjectCard({
                     <dd className="text-xs font-semibold text-slate-500">
                         Estimasi Waktu
                     </dd>
-                    <dt className="font-bold text-slate-950">
+                    <dt className="text-sm font-bold text-slate-950">
                         {time ? roundNumber(time) : "-"} Bulan
                     </dt>
                 </div>
@@ -40,7 +40,7 @@ export default function ProjectCard({
                     <dd className="text-xs font-semibold text-slate-500">
                         Estimasi Staf
                     </dd>
-                    <dt className="font-bold text-slate-950">
+                    <dt className="text-sm font-bold text-slate-950">
                         {people ? roundNumber(people) : "-"} Staf
                     </dt>
                 </div>
@@ -48,7 +48,7 @@ export default function ProjectCard({
                     <dd className="text-xs font-semibold text-slate-500">
                         Estimasi Biaya
                     </dd>
-                    <dt className="font-bold text-slate-950">
+                    <dt className="text-sm font-bold text-slate-950">
                         {cost ? currencyFormat(cost) : "-"}
                     </dt>
                 </div>
