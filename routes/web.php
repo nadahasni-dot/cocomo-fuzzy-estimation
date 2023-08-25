@@ -1,6 +1,14 @@
 <?php
 
+use App\Http\Controllers\CalculateController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EffortMultiplierController;
+use App\Http\Controllers\FunctionalityController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ScaleFactorController;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +22,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
+
+Route::get('/about', function () {
+    return Inertia::render('About');
+})->name('about');
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::resource('/projects', ProjectController::class, [
+        'names' => [
+            'index' => 'projects',
+        ]
+    ])->except(['update']);
+    Route::post('/projects/{project}/update', [ProjectController::class, 'update'])->name('projects.update');
+
+    Route::resource('/projects/{project}/functionalities', FunctionalityController::class);
+    Route::resource('/projects/{project}/scalefactor', ScaleFactorController::class)->except(['index, destroy, show']);
+    Route::resource('/projects/{project}/effortmultiplier', EffortMultiplierController::class)->except(['index, destroy, show']);
+
+    Route::post('/projects/{project}/calculate', [CalculateController::class, 'index'])->name('projects.calculate');
+});
+
+
+
+require __DIR__ . '/auth.php';
