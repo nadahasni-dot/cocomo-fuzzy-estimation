@@ -44,6 +44,6 @@ console_command = "php /var/www/html/artisan tinker"
   min_machines_running = 0
   processes = ["app"]
 
-[deploy]
-  release_command = "php /var/www/html/artisan storage:link"
+# [deploy]
+#   release_command = "php /var/www/html/artisan storage:link"
   # release_command = "php /var/www/html/artisan migrate:fresh --seed --force"

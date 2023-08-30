@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EffortMultiplier\CreateEffortMultiplierRequest;
+use App\Logic\FuzzyLogic;
 use App\Models\EffortMultiplier;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -183,6 +184,28 @@ class EffortMultiplierController extends Controller
             abs($data['site']),
             abs($data['sced']),
         );
+
+        // EFFORT MULTIPLIER FUZZY
+        $fuzzyLogic = new FuzzyLogic([
+            'rely' => abs($data['rely']),
+            'data' => abs($data['data']),
+            'cplx' => abs($data['cplx']),
+            'docu' => abs($data['docu']),
+            'acap' => abs($data['acap']),
+            'pcap' => abs($data['pcap']),
+            'pcon' => abs($data['pcon']),
+            'ruse' => abs($data['ruse']),
+            'time' => abs($data['time']),
+            'stor' => abs($data['stor']),
+            'pvol' => abs($data['pvol']),
+            'aplex' => abs($data['aplex']),
+            'plex' => abs($data['plex']),
+            'ltex' => abs($data['ltex']),
+            'tool' => abs($data['tool']),
+            'site' => abs($data['site']),
+            'sced' => abs($data['sced']),
+        ]);
+        $effortmultiplier->effort_multiplier_fuzzy = $fuzzyLogic->calculateFuzzy();
 
         if ($effortmultiplier->save()) {
             return redirect()->route('projects.show', [$project]);
