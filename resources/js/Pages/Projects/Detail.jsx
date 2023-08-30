@@ -42,7 +42,7 @@ export default function Projects(props) {
     };
 
     const checkIsCalculateAble = () =>
-        effortMultiplier?.effort_multiplier &&
+        effortMultiplier?.effort_multiplier_fuzzy &&
         scaleFactor?.scale_factor &&
         ksloc > 0;
 
@@ -84,8 +84,8 @@ export default function Projects(props) {
                             title="Estimasi Waktu"
                             icon="/icons/clock.svg"
                             value={`${
-                                project.est_time
-                                    ? roundNumber(project.est_time)
+                                project.est_time_fuzzy
+                                    ? roundNumber(project.est_time_fuzzy)
                                     : "-"
                             } Bulan`}
                             description="Estimasi waktu pengerjaan proyek dalam satuan bulan"
@@ -95,8 +95,8 @@ export default function Projects(props) {
                             title="Estimasi Staf"
                             icon="/icons/staff.svg"
                             value={`${
-                                project.est_staff
-                                    ? roundNumber(project.est_staff)
+                                project.est_staff_fuzzy
+                                    ? roundNumber(project.est_staff_fuzzy)
                                     : "-"
                             } Orang`}
                             description="Estimasi jumlah staf yang diperlukan untuk menyelesaikan proyek"
@@ -106,8 +106,8 @@ export default function Projects(props) {
                             title="Estimasi Biaya"
                             icon="/icons/cost.svg"
                             value={
-                                project.est_cost
-                                    ? currencyFormat(project.est_cost)
+                                project.est_cost_fuzzy
+                                    ? currencyFormat(project.est_cost_fuzzy)
                                     : "-"
                             }
                             description="Estimasi biaya staff yang diperlukan untuk menyelesaikan proyek"
@@ -124,8 +124,8 @@ export default function Projects(props) {
                             title="Estimasi Usaha"
                             icon="/icons/effort.svg"
                             value={`${
-                                project.est_effort
-                                    ? roundNumber(project.est_effort)
+                                project.est_effort_fuzzy
+                                    ? roundNumber(project.est_effort_fuzzy)
                                     : "-"
                             } Person Month`}
                             description="Estimasi usaha untuk menyelesaikan proyek dalam satuan (Person Month)"
@@ -334,15 +334,17 @@ export default function Projects(props) {
                     {/* Effort Multiplier */}
                     <CalculateCard
                         className={`${
-                            effortMultiplier?.effort_multiplier
+                            effortMultiplier?.effort_multiplier_fuzzy
                                 ? "bg-green-500"
                                 : "bg-amber-400"
                         } mt-6`}
                         title="Pengganda Usaha"
                         description="Lengkapi formulir (Effort Multiplier) untuk mendapatkan perhitungan estimasi"
-                        value={roundNumber(effortMultiplier?.effort_multiplier)}
+                        value={roundNumber(
+                            effortMultiplier?.effort_multiplier_fuzzy
+                        )}
                         href={route(
-                            effortMultiplier?.effort_multiplier
+                            effortMultiplier?.effort_multiplier_fuzzy
                                 ? "effortmultiplier.edit"
                                 : "effortmultiplier.create",
                             { project, effortmultiplier: effortMultiplier }
