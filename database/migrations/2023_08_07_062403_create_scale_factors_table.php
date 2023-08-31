@@ -26,7 +26,7 @@ class CreateScaleFactorsTable extends Migration
         });
 
         Schema::table('scale_factors', function (Blueprint $table) {
-            $table->foreign('project_id')->references('id')->on('projects');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');;
         });
     }
 

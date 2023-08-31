@@ -29,8 +29,8 @@ class CreateFunctionalitiesTable extends Migration
         });
 
         Schema::table('functionalities', function (Blueprint $table) {
-            $table->foreign('project_id')->references('id')->on('projects');
-            $table->foreign('language_function_point_id')->references('id')->on('language_function_points');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');;
+            $table->foreign('language_function_point_id')->references('id')->on('language_function_points')->onDelete('cascade');;
         });
     }
 

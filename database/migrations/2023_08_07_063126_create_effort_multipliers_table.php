@@ -39,7 +39,7 @@ class CreateEffortMultipliersTable extends Migration
         });
 
         Schema::table('effort_multipliers', function (Blueprint $table) {
-            $table->foreign('project_id')->references('id')->on('projects');
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');;
         });
     }
 

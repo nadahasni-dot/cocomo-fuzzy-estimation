@@ -33,7 +33,7 @@ class CreateProjectsTable extends Migration
         });
 
         Schema::table('projects', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
