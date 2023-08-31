@@ -131,7 +131,7 @@ class DatabaseSeeder extends Seeder
         LanguageFunctionPoint::create(
             [
                 'name' => 'HTML',
-                'conversion_rate' => 34,
+                'conversion_rate' => 15,
             ]
         );
 
@@ -215,7 +215,7 @@ class DatabaseSeeder extends Seeder
         LanguageFunctionPoint::create(
             [
                 'name' => 'PHP',
-                'conversion_rate' => 67,
+                'conversion_rate' => 53,
             ]
         );
 

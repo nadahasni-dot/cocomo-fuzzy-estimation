@@ -2,13 +2,10 @@
 
 namespace App\Logic;
 
-use PhpParser\Node\Stmt\Continue_;
-
 class FuzzyLogic extends Membership
 {
     private $input;
     private $membership;
-    private $alphaPredicate;
     private $calculations;
 
     private $rules = [
