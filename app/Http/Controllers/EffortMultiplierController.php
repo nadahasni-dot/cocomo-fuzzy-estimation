@@ -32,6 +32,28 @@ class EffortMultiplierController extends Controller
         $data = $request->validated();
         $effortMultiplier = EffortMultiplier::where('project_id', $project->id)->first();
 
+        // EFFORT MULTIPLIER FUZZY
+        $fuzzyLogic = new FuzzyLogic([
+            'rely' => abs($data['rely']),
+            'data' => abs($data['data']),
+            'cplx' => abs($data['cplx']),
+            'docu' => abs($data['docu']),
+            'acap' => abs($data['acap']),
+            'pcap' => abs($data['pcap']),
+            'pcon' => abs($data['pcon']),
+            'ruse' => abs($data['ruse']),
+            'time' => abs($data['time']),
+            'stor' => abs($data['stor']),
+            'pvol' => abs($data['pvol']),
+            'aplex' => abs($data['aplex']),
+            'plex' => abs($data['plex']),
+            'ltex' => abs($data['ltex']),
+            'tool' => abs($data['tool']),
+            'site' => abs($data['site']),
+            'sced' => abs($data['sced']),
+        ]);
+        $emFuzzy = $fuzzyLogic->calculateFuzzy();
+
         if ($effortMultiplier == null) { // CREATE NEW IF NOT EXIST
             $new = EffortMultiplier::create([
                 'project_id' => $project->id,
@@ -71,6 +93,7 @@ class EffortMultiplierController extends Controller
                     abs($data['site']),
                     abs($data['sced']),
                 ),
+                'effort_multiplier_fuzzy' => $emFuzzy,
             ]);
 
             if ($new) {
@@ -117,6 +140,8 @@ class EffortMultiplierController extends Controller
             abs($data['site']),
             abs($data['sced']),
         );
+
+        $effortMultiplier->effort_multiplier_fuzzy = $emFuzzy;
 
         if ($effortMultiplier->save()) {
             return redirect()->route('projects.show', [$project]);
