@@ -25,7 +25,7 @@ export default function Projects(props) {
                             href={route("projects.create")}
                             className="px-3 py-2 text-sm font-bold transition bg-indigo-200 rounded-lg shadow hover:bg-indigo-100"
                         >
-                            + Add Project
+                            + Tambah Proyek
                         </Link>
                     </div>
                     <div className="flex flex-row justify-between mt-4">

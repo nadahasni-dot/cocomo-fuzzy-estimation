@@ -322,7 +322,7 @@ export default function Projects(props) {
                         } mt-6`}
                         title="Faktor Skala"
                         description="Lengkapi formulir faktor skala (Scale Factors) untuk mendapatkan perhitungan estimasi"
-                        value={roundNumber(scaleFactor?.scale_factor)}
+                        value={roundNumber(scaleFactor?.scale_factor ?? 0)}
                         href={route(
                             scaleFactor?.scale_factor
                                 ? "scalefactor.edit"
@@ -341,7 +341,7 @@ export default function Projects(props) {
                         title="Pengganda Usaha"
                         description="Lengkapi formulir (Effort Multiplier) untuk mendapatkan perhitungan estimasi"
                         value={roundNumber(
-                            effortMultiplier?.effort_multiplier_fuzzy
+                            effortMultiplier?.effort_multiplier_fuzzy ?? 0
                         )}
                         href={route(
                             effortMultiplier?.effort_multiplier_fuzzy
