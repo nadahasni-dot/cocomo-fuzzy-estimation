@@ -353,6 +353,9 @@ class FuzzyLogic extends Membership
             $sumAlphaMultiplyZ += ($alpha * $z);
         }
 
+        if ($sumAlphaMultiplyZ <= 0) return 0.71;
+        if ($sumAlpha <= 0) return 0.71;
+
         $output = $sumAlphaMultiplyZ / $sumAlpha;
 
         return $output;
