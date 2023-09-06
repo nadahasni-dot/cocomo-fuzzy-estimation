@@ -21,10 +21,14 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $draftProjects = Project::where('status', 0)->get();
-        $projects = Project::where('status', 1)->get();
+        $draftProjects = Project::where('status', 0)
+            ->where('user_id', $request->user()->id)
+            ->get();
+        $projects = Project::where('status', 1)
+            ->where('user_id', $request->user()->id)
+            ->get();
 
         return Inertia::render('Projects', [
             'projects' => $projects,
