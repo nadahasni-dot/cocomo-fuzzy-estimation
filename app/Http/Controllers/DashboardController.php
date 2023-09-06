@@ -13,11 +13,15 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $projects = Project::where('status', 1)->get();
-        $projectsCount = Project::count();
-        $draftProjectsCount = Project::where('status', 0)->count();
+        $projects = Project::where('status', 1)
+            ->where('user_id', $request->user()->id)
+            ->get();
+        $projectsCount = Project::where('user_id', $request->user()->id)->count();
+        $draftProjectsCount = Project::where('status', 0)
+            ->where('user_id', $request->user()->id)
+            ->count();
 
         return Inertia::render('Dashboard', [
             'projects' => $projects,
