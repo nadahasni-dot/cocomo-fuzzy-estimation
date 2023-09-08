@@ -107,7 +107,7 @@ export default function Edit(props) {
                                     autoComplete="name"
                                     isFocused={true}
                                     handleChange={onHandleChange}
-                                    placeholder="Nama Fungsionalitas"
+                                    placeholder="Nama Fungsionalitas (contoh: autentikasi, manajemen pengguna, pembayaran)"
                                     required={true}
                                 />
                             </div>
@@ -126,7 +126,7 @@ export default function Edit(props) {
                                     autoComplete="description"
                                     isFocused={false}
                                     handleChange={onHandleChange}
-                                    placeholder="Deskripsi Fungsionalitas"
+                                    placeholder="Deskripsi Fungsionalitas (contoh: pembayaran otomatis dengan payment gateway terintegrasi)"
                                 />
                             </div>
 
@@ -143,7 +143,7 @@ export default function Edit(props) {
                                     value={data.languageFunctionPointId}
                                     className="block w-full mt-1"
                                     handleChange={onSelect}
-                                    placeholder="Pilih Bahasa Pemrograman"
+                                    placeholder="Pilih Bahasa Pemrograman (contoh: PHP, JavaScript, Java)"
                                     options={options}
                                 />
                             </div>
@@ -154,6 +154,13 @@ export default function Edit(props) {
                             <p className="text-xs text-gray-500">
                                 Lengkapi tabel pembobotan dibawah sesuai dengan
                                 tingkat kesulitan fungsionalitas ini
+                                <br />
+                                <span className="text-sky-500">
+                                    (contoh: pada fitur autentikasi terdapat 1
+                                    external input dengan tingkat kesulitan
+                                    "Mudah", 2 external output dengan kesulitan
+                                    sedang, dst)
+                                </span>
                             </p>
 
                             {/* TABLE */}
@@ -214,6 +221,7 @@ export default function Edit(props) {
                                                 <input
                                                     required
                                                     type="number"
+                                                    max={10}
                                                     name="exi_easy"
                                                     className="border-0"
                                                     value={data.exi.easy}
@@ -230,6 +238,7 @@ export default function Edit(props) {
                                                     className="border-0"
                                                     required
                                                     type="number"
+                                                    max={10}
                                                     name="exi_moderate"
                                                     value={data.exi.moderate}
                                                     onChange={
@@ -245,6 +254,7 @@ export default function Edit(props) {
                                                     className="border-0"
                                                     required
                                                     type="number"
+                                                    max={10}
                                                     name="exi_hard"
                                                     value={data.exi.hard}
                                                     onChange={
@@ -279,6 +289,7 @@ export default function Edit(props) {
                                                     className="border-0"
                                                     required
                                                     type="number"
+                                                    max={10}
                                                     name="exo_easy"
                                                     value={data.exo.easy}
                                                     onChange={
@@ -294,6 +305,7 @@ export default function Edit(props) {
                                                     className="border-0"
                                                     required
                                                     type="number"
+                                                    max={10}
                                                     name="exo_moderate"
                                                     value={data.exo.moderate}
                                                     onChange={
@@ -309,6 +321,7 @@ export default function Edit(props) {
                                                     className="border-0"
                                                     required
                                                     type="number"
+                                                    max={10}
                                                     name="exo_hard"
                                                     value={data.exo.hard}
                                                     onChange={
@@ -344,6 +357,7 @@ export default function Edit(props) {
                                                     className="border-0"
                                                     required
                                                     type="number"
+                                                    max={10}
                                                     name="exiq_easy"
                                                     value={data.exiq.easy}
                                                     onChange={
@@ -359,6 +373,7 @@ export default function Edit(props) {
                                                     className="border-0"
                                                     required
                                                     type="number"
+                                                    max={10}
                                                     name="exiq_moderate"
                                                     value={data.exiq.moderate}
                                                     onChange={
@@ -374,6 +389,7 @@ export default function Edit(props) {
                                                     className="border-0"
                                                     required
                                                     type="number"
+                                                    max={10}
                                                     name="exiq_hard"
                                                     value={data.exiq.hard}
                                                     onChange={
@@ -406,6 +422,7 @@ export default function Edit(props) {
                                                     className="border-0"
                                                     required
                                                     type="number"
+                                                    max={10}
                                                     name="ilof_easy"
                                                     value={data.ilof.easy}
                                                     onChange={
@@ -421,6 +438,7 @@ export default function Edit(props) {
                                                     className="border-0"
                                                     required
                                                     type="number"
+                                                    max={10}
                                                     name="ilof_moderate"
                                                     value={data.ilof.moderate}
                                                     onChange={
@@ -436,6 +454,7 @@ export default function Edit(props) {
                                                     className="border-0"
                                                     required
                                                     type="number"
+                                                    max={10}
                                                     name="ilof_hard"
                                                     value={data.ilof.hard}
                                                     onChange={
@@ -470,6 +489,7 @@ export default function Edit(props) {
                                                     className="border-0"
                                                     required
                                                     type="number"
+                                                    max={10}
                                                     name="elof_easy"
                                                     value={data.elof.easy}
                                                     onChange={
@@ -485,6 +505,7 @@ export default function Edit(props) {
                                                     className="border-0"
                                                     required
                                                     type="number"
+                                                    max={10}
                                                     name="elof_moderate"
                                                     value={data.elof.moderate}
                                                     onChange={
@@ -500,6 +521,7 @@ export default function Edit(props) {
                                                     className="border-0"
                                                     required
                                                     type="number"
+                                                    max={10}
                                                     name="elof_hard"
                                                     value={data.elof.hard}
                                                     onChange={

@@ -73,7 +73,7 @@ export default function Form(props) {
                                     autoComplete="name"
                                     isFocused={true}
                                     handleChange={onHandleChange}
-                                    placeholder="Nama Proyek"
+                                    placeholder="Nama Proyek (contoh: Sistem Informasi Pegawai)"
                                     required={true}
                                 />
                             </div>
@@ -92,7 +92,7 @@ export default function Form(props) {
                                     autoComplete="description"
                                     isFocused={false}
                                     handleChange={onHandleChange}
-                                    placeholder="Deskripsi Proyek"
+                                    placeholder="Deskripsi Proyek (contoh: sistem pengelolaan pegawai .....)"
                                 />
                             </div>
 
