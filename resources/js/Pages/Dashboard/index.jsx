@@ -57,10 +57,10 @@ export default function Dashboard(props) {
                             <ProjectCard
                                 key={project.id}
                                 name={project.name}
-                                effort={project.est_effort}
-                                time={project.est_time}
-                                people={project.est_staff}
-                                cost={project.est_cost}
+                                effort={project.est_effort_fuzzy}
+                                time={project.est_time_fuzzy}
+                                people={project.est_staff_fuzzy}
+                                cost={project.est_cost_fuzzy}
                                 isDraft={project.status === 0}
                                 href={route("projects.show", project)}
                             />
