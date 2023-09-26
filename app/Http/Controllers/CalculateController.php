@@ -37,13 +37,14 @@ class CalculateController extends Controller
 
         // STAFF ESTIMATION
         $staffEstimation = $effortEstimation / $timeEstimation;
-        $staffEstimationFuzzy = $effortEstimation / $timeEstimationFuzzy;
+        $staffEstimationFuzzy = $effortEstimationFuzzy / $timeEstimationFuzzy;
 
         // COST ESTIMATION
         $staffCostEstimation = $staffEstimation * $project->avg_staff_cost;
         $staffCostEstimationFuzzy = $staffEstimationFuzzy * $project->avg_staff_cost;
+
         $totalCostEstimation = $staffCostEstimation * $timeEstimation;
-        $totalCostEstimationFuzzy = $staffCostEstimationFuzzy * $timeEstimation;
+        $totalCostEstimationFuzzy = $staffCostEstimationFuzzy * $timeEstimationFuzzy;        
 
         $project->est_effort = $effortEstimation;
         $project->est_time = $timeEstimation;
