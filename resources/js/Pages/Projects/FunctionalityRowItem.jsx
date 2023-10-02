@@ -67,7 +67,7 @@ export default function FunctionalityRowItem({
                         as="button"
                         className="flex items-center px-3 py-1 text-white transition bg-indigo-600 rounded-lg hover:opacity-70"
                     >
-                        <img src="/icons/edit.svg" alt="edit" width={16} /> Edit
+                        <img src="/svg/edit.svg" alt="edit" width={16} /> Edit
                     </Link>
 
                     <Dialog
@@ -120,7 +120,7 @@ export default function FunctionalityRowItem({
                         onClick={() => setIsDeleteOpen(true)}
                         className="flex items-center px-3 py-1 text-white transition bg-red-500 rounded-lg hover:opacity-70"
                     >
-                        <img src="/icons/delete.svg" alt="delete" width={16} />{" "}
+                        <img src="/svg/delete.svg" alt="delete" width={16} />{" "}
                         Hapus
                     </button>
                 </div>

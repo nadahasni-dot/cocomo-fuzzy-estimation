@@ -16,7 +16,7 @@ export default function Welcome(props) {
                     <div className="container mx-auto">
                         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
                             <img
-                                src="/icons/logo-dark.svg"
+                                src="/svg/logo-dark.svg"
                                 alt={appName}
                                 width={180}
                                 className="my-2"
@@ -84,7 +84,7 @@ export default function Welcome(props) {
                                     className="px-2 py-2 font-bold text-indigo-700 transition rounded-lg bg-amber-400 hover:bg-amber-300"
                                 >
                                     <img
-                                        src="/icons/whatsapp.svg"
+                                        src="/svg/whatsapp.svg"
                                         alt="hubungi-whatsapp"
                                     />
                                 </a>
@@ -105,15 +105,15 @@ export default function Welcome(props) {
                         </p>
                         <div className="grid max-w-4xl grid-cols-1 gap-4 mx-auto mt-10 md:grid-cols-3">
                             <InfoCard
-                                icon="/icons/cocomo-info.svg"
+                                icon="/svg/cocomo-info.svg"
                                 description="COCOMO II merupakan salah satu pemodelan estimasi biaya dengan pendekatan algoritmik yang dapat digunakan untuk melakukan estimasi usaha, biaya, waktu, pada suatu pengembangan perangkat luinak"
                             />
                             <InfoCard
-                                icon="/icons/cocomo-brain.svg"
+                                icon="/svg/cocomo-brain.svg"
                                 description="COCOMO II (Constructive Cost Model II). Model COCOMO didasarkan pada studi 63 proyek pengembangan perangkat lunak berskala besar pada tahun 1981 yang kemudian disempuranakan pada akhir tahun 90-an menjadi COCOMO II"
                             />
                             <InfoCard
-                                icon="/icons/cocomo-document.svg"
+                                icon="/svg/cocomo-document.svg"
                                 description="Algoritma COCOMO II menjadi salah satu model yang memiliki dokumentasi terbaik"
                             />
                         </div>
@@ -132,14 +132,14 @@ export default function Welcome(props) {
                         </p>
                         <div className="flex flex-col gap-6 mt-10">
                             <StepCard
-                                icon="/icons/step-1.svg"
+                                icon="/svg/step-1.svg"
                                 title="Mencatat tiap kebutuhan fungsional"
                             >
                                 Menambahkan detail daftar kebutuhan fungsional
                                 sistem yang akan dibangun.
                             </StepCard>
                             <StepCard
-                                icon="/icons/step-2.svg"
+                                icon="/svg/step-2.svg"
                                 title="Mengisi form Function Point"
                             >
                                 Mengisi formulir function point pada tiap
@@ -147,7 +147,7 @@ export default function Welcome(props) {
                                 Source Line of Code (SLOC).
                             </StepCard>
                             <StepCard
-                                icon="/icons/step-3.svg"
+                                icon="/svg/step-3.svg"
                                 title="Mengisi form COCOMO II"
                             >
                                 Pengisian detail projek dengan melengkapi
@@ -155,7 +155,7 @@ export default function Welcome(props) {
                                 sesuai spesifikasi projek.
                             </StepCard>
                             <StepCard
-                                icon="/icons/step-4.svg"
+                                icon="/svg/step-4.svg"
                                 title="Perhitungan COCOMO II dengan Logika FUZZY"
                             >
                                 Data yang telah terekam akan diproses dengan
@@ -163,7 +163,7 @@ export default function Welcome(props) {
                                 dengan Logika Fuzzy.
                             </StepCard>
                             <StepCard
-                                icon="/icons/step-5.svg"
+                                icon="/svg/step-5.svg"
                                 title="Didapatkan Hasil Estimasi"
                             >
                                 Didapatkan hasil estimasi cost projek berupa{" "}
@@ -187,7 +187,7 @@ export default function Welcome(props) {
                         <div className="grid grid-cols-1 gap-16 md:grid-cols-3">
                             <div>
                                 <img
-                                    src="/icons/logo-light.svg"
+                                    src="/svg/logo-light.svg"
                                     alt="cocomo"
                                     width={250}
                                 />
@@ -239,7 +239,7 @@ export default function Welcome(props) {
                                             className="flex items-start gap-2 text-sm transition md:text-base hover:text-indigo-100"
                                         >
                                             <img
-                                                src="/icons/location-pin.svg"
+                                                src="/svg/location-pin.svg"
                                                 alt="location"
                                                 width={24}
                                             />
@@ -257,7 +257,7 @@ export default function Welcome(props) {
                                             className="flex items-start gap-2 text-sm transition md:text-base hover:text-indigo-100"
                                         >
                                             <img
-                                                src="/icons/whatsapp.svg"
+                                                src="/svg/whatsapp.svg"
                                                 alt="whatsapp"
                                                 width={24}
                                             />

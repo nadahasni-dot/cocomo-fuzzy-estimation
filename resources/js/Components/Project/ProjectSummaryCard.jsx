@@ -16,7 +16,7 @@ export default function ProjectSummaryCard({
                 <h5 className="font-semibold text-gray-500">{title}</h5>
                 <Popover>
                     <Popover.Button>
-                        <img src="/icons/info.svg" width={18} alt="info" />
+                        <img src="/svg/info.svg" width={18} alt="info" />
                     </Popover.Button>
 
                     <Popover.Panel className="absolute z-10 max-w-xs p-2 text-xs text-gray-600 transition bg-white border border-gray-100 rounded-lg shadow-lg -ml-60 hover:bg-indigo-50">

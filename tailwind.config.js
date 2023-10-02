@@ -19,7 +19,7 @@ module.exports = {
                 10: "2.5rem",
             },
             backgroundImage: {
-                "project-pattern": "url('/icons/project.svg')",
+                "project-pattern": "url('/svg/project.svg')",
                 hero: "url('/images/hero-bg.jpg')",
             },
             fontFamily: {

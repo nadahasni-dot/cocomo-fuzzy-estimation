@@ -75,14 +75,14 @@ export default function Projects(props) {
                     <div className="grid grid-cols-1 gap-3 md:grid-cols-4">
                         <ProjectSummaryCard
                             title="KSLOC"
-                            icon="/icons/code.svg"
+                            icon="/svg/code.svg"
                             value={ksloc ? roundNumber(ksloc) : "-"}
                             description="Estimasi jumlah baris kode (Kilo Source Line of Code)"
                             className="border-indigo-600"
                         />
                         <ProjectSummaryCard
                             title="Estimasi Waktu"
-                            icon="/icons/clock.svg"
+                            icon="/svg/clock.svg"
                             value={`${
                                 project.est_time_fuzzy
                                     ? roundNumber(project.est_time_fuzzy)
@@ -93,7 +93,7 @@ export default function Projects(props) {
                         />
                         <ProjectSummaryCard
                             title="Estimasi Staf"
-                            icon="/icons/staff.svg"
+                            icon="/svg/staff.svg"
                             value={`${
                                 project.est_staff_fuzzy
                                     ? roundNumber(project.est_staff_fuzzy)
@@ -104,7 +104,7 @@ export default function Projects(props) {
                         />
                         <ProjectSummaryCard
                             title="Estimasi Biaya"
-                            icon="/icons/cost.svg"
+                            icon="/svg/cost.svg"
                             value={
                                 project.est_cost_fuzzy
                                     ? currencyFormat(project.est_cost_fuzzy)
@@ -115,14 +115,14 @@ export default function Projects(props) {
                         />
                         <ProjectSummaryCard
                             title="Fungsionalitas"
-                            icon="/icons/functionalities.svg"
+                            icon="/svg/functionalities.svg"
                             value={`${countFunctionality} Fungsionalitas`}
                             description="Jumlah modul/fungsionalitas pada proyek"
                             className="md:col-span-2 border-fuchsia-600"
                         />
                         <ProjectSummaryCard
                             title="Estimasi Usaha"
-                            icon="/icons/effort.svg"
+                            icon="/svg/effort.svg"
                             value={`${
                                 project.est_effort_fuzzy
                                     ? roundNumber(project.est_effort_fuzzy)
@@ -236,7 +236,7 @@ export default function Projects(props) {
                                 className="flex items-center gap-1 px-3 py-1 font-semibold text-white transition bg-indigo-600 rounded-lg shadow hover:bg-indigo-400"
                             >
                                 <img
-                                    src="/icons/edit.svg"
+                                    src="/svg/edit.svg"
                                     alt="edit"
                                     width={20}
                                 />{" "}
@@ -298,7 +298,7 @@ export default function Projects(props) {
                                 }`}
                             >
                                 <img
-                                    src="/icons/delete.svg"
+                                    src="/svg/delete.svg"
                                     alt="delete"
                                     width={20}
                                 />{" "}

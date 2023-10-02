@@ -44,7 +44,7 @@ export default function CalculateCard({
                     </div>
                     <p className="mt-1 text-xs text-white">{description}</p>
                 </div>
-                <img src="/icons/chevron.svg" alt="chevron" width={30} />
+                <img src="/svg/chevron.svg" alt="chevron" width={30} />
             </div>
         </Link>
     );
