@@ -87,8 +87,7 @@ class ProjectController extends Controller
         $query->orderBy('id', 'desc');
 
         if ($request->q) {
-            $query->where('name', 'like', '%' . $request->q . '%')
-                ->orWhere('description', 'like', '%' . $request->q . '%');
+            $query->where('name', 'like', '%' . $request->q . '%');
         }
 
         $functionalities = new FunctionalityCollection($query->paginate($request->load ?? $this->defaultLoad));
