@@ -161,6 +161,10 @@ export default function Edit(props) {
                                     "Mudah", 2 external output dengan kesulitan
                                     sedang, dst)
                                 </span>
+                                <br />
+                                <span className="font-bold text-sky-500">
+                                    Range dapat diisi dari 0 - 10.
+                                </span>
                             </p>
 
                             {/* TABLE */}
